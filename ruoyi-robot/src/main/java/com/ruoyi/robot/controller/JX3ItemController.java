@@ -63,8 +63,9 @@ public class JX3ItemController {
      * @date 2022/4/23 21:07
      * @return void
      */
-    @Scheduled(cron = "*/5 * * * * ?")
+    @Scheduled(cron = "0 0 7 * * ? ")
     public void taskGoodExpRemind(){
+
         List<JX3Item> allGoodExpTime = service.getAllGoodExpTime();
         MiraiBot miraiBot = Const.MiraiBotManage.INSTANCE.getMiraiBotManage().get(Identifies.ID(Const.MiraiBot.PSYDUCK.getAccountNumber()));
         for(JX3Item jx3Item: allGoodExpTime){

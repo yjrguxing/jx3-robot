@@ -12,6 +12,67 @@ import love.forte.simbot.component.mirai.MiraiBotManager;
  * @version 1.0
  **/
 public class Const {
+    /**
+     * 管理请求的地址
+     * @author psyduck
+     * @Date 2022/5/8 20:58
+     * @see
+     * @version 1.0
+     **/
+    public enum URIConfig{
+        // 获取剑三日常的接口地址
+        JX3Daily("https://cms.jx3box.com/api/cms/game/daily","获取剑三日常的地址");
+
+        private String url;
+        private String description;
+
+        URIConfig(String url, String description) {
+            this.url = url;
+            this.description = description;
+        }
+
+        public String getUrl() {
+            return url;
+        }
+
+        public String getDescription() {
+            return description;
+        }
+    }
+    /**
+     * 定时任务相关设置
+     * @author psyduck
+     * @Date 2022/5/8 16:19
+     * @see
+     * @version 1.0
+     **/
+    public enum ScheduledInfo{
+        // 定时任务相关设置
+        // 每天早上7点运行一次
+        JX3ITEMEXPSCHEDULEDTASK(1,"剑三物品到期提醒定时任务","0 0 7 * * ? ");
+        private final Integer code;
+        private final String description;
+        private final String cron;
+
+        ScheduledInfo(Integer code, String description, String cron) {
+            this.code = code;
+            this.description = description;
+            this.cron = cron;
+        }
+
+        public Integer getCode() {
+            return code;
+        }
+
+        public String getDescription() {
+            return description;
+        }
+
+        public String getCron() {
+            return cron;
+        }
+    }
+
     public enum AdminInfo{
         // 定义管理员信息
         PSYDUCK(1,"可达鸭");
