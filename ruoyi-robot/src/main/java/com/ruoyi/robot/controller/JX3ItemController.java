@@ -72,6 +72,8 @@ public class JX3ItemController {
             Message message = service.goodExpTimeCommon(jx3Item.getName());
             if(message != null){
                 miraiBot.getFriend(Identifies.ID("1241280257")).sendBlocking(message);
+                miraiBot.getGroup(Identifies.ID("731300905")).sendBlocking(message);
+                miraiBot.getGroup(Identifies.ID("451981492")).sendBlocking(message);
             }
         }
     }
