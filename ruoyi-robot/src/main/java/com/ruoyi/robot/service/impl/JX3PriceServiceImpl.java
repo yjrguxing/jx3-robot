@@ -2,11 +2,8 @@ package com.ruoyi.robot.service.impl;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.ruoyi.robot.dao.JX3DailyDao;
 import com.ruoyi.robot.dao.JX3PriceDao;
-import com.ruoyi.robot.entity.JX3Daily;
 import com.ruoyi.robot.entity.JX3Price;
-import com.ruoyi.robot.service.JX3DailyService;
 import com.ruoyi.robot.service.JX3PriceService;
 import lombok.SneakyThrows;
 import love.forte.simbot.message.Message;
@@ -16,7 +13,6 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
