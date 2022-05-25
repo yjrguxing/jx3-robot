@@ -2,14 +2,17 @@ package com.ruoyi.robot.controller;
 
 import com.ruoyi.robot.service.JX3BPSMoWenService;
 import com.ruoyi.robot.util.TimeUtil;
+import lombok.SneakyThrows;
 import love.forte.simboot.annotation.Filter;
 import love.forte.simboot.annotation.Listener;
 import love.forte.simboot.filter.MatchType;
 import love.forte.simbot.component.mirai.event.MiraiGroupMessageEvent;
 import love.forte.simbot.message.Message;
 import love.forte.simbot.message.Text;
+import love.forte.simbot.resources.Resource;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.File;
 import java.util.Date;
 
 /**
@@ -150,6 +153,18 @@ public class JX3BPSMoWenController {
                     "4540是影子的阈值 相比4026有较大提升\n" +
                     "非大橙武不推荐6296是因为大橙武特效可以回复徵充能 而其他武器不能 导致后期打羽\n" +
                     "4540和2956相比容易掉dot 如果续不上建议2956");
+        } else {
+            message = Text.of("请等待" + diffms + "秒再尝试！谢谢！");
+        }
+        event.getGroup().sendBlocking(message);
+    }
+    @SneakyThrows
+    @Listener
+    @Filter(value = "莫问精简选择",matchType = MatchType.TEXT_EQUALS)
+    public void getMoWenJingJianChoose(MiraiGroupMessageEvent event){
+        Message message = null;
+        if (!throttle()) {
+            message = event.getBot().uploadImageBlocking(Resource.of(new File(new File("ruoyi-robot/src/main/resources").getCanonicalPath() + "/Image/MoWen/莫问精简.png")));
         } else {
             message = Text.of("请等待" + diffms + "秒再尝试！谢谢！");
         }
