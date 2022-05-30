@@ -33,7 +33,9 @@ public class JX3BPSYanTianController {
                         "衍天3分钟技能数\n" +
                         "衍天2分钟技能数\n" +
                         "衍天阵眼排序\n" +
-                        "衍天小药推荐\n");
+                        "衍天小药推荐\n" +
+                        "衍天试炼\n" +
+                        "衍天实战视频");
         event.getGroup().sendBlocking(message);
     }
 
@@ -101,7 +103,26 @@ public class JX3BPSYanTianController {
     @Listener
     @Filter(value = "衍天小药推荐",matchType = MatchType.TEXT_EQUALS)
     public void getYanTianXiaoYao(MiraiGroupMessageEvent event){
-        Image image = event.getBot().uploadImageBlocking(Resource.of(new File(new File("ruoyi-robot/src/main/resources").getCanonicalPath() + "/Image/YanTian/衍天小药.png")));
+        Image image = event.getBot().uploadImageBlocking(Resource.of(new File("ruoyi-robot/src/main/resources/Image/YanTian/衍天小药.png")));
         event.getGroup().sendBlocking(image);
+    }
+    @Listener
+    @Filter(value = "衍天试炼",matchType = MatchType.TEXT_EQUALS)
+    public void getYanTianShiLian(MiraiGroupMessageEvent event){
+        Message message = Text.of("这个赛季衍天无论是在单体还是群攻方面，都得到了一定的加强，由于衍天的独特机制，使得衍天在试炼之地中的表现十分优秀，同时，作为110等级的靠后赛季，属性容量比较饱和，从而导致这个赛季想要冲高层的难度大大降低，无论是做完美成就，还是冲刺120层，这个赛季都是目前最好的一个赛季。\n" +
+                "衍天作为上手难度较高的门派，试炼之地同样有一定的门槛，很多关卡需多加练习，下面提供一些自己的思路。\n" +
+                "前九关思路视频：https://www.bilibili.com/video/BV1VY4y1L78N/\n" +
+                "雷神思路视频：https://www.bilibili.com/video/BV1Qa411f7oR/ \n" +
+                "文字版教程：衍天白皮书第七篇 试炼篇 https://www.jx3box.com/bps/39504  试炼篇作者：恩静");
+        event.getGroup().sendBlocking(message);
+    }
+    @Listener
+    @Filter(value = "衍天实战视频",matchType = MatchType.TEXT_EQUALS)
+    public void getYanTianVideo(MiraiGroupMessageEvent event){
+        Message message = Text.of("衍天宗水特效天网连段大战英雄河阳老一 by风雪入我怀\n" +
+                "https://www.bilibili.com/video/BV1Eg411o7KD\n" +
+                " 衍天宗河阳之战英雄老三鬼神增卜流思路教学（结尾附卡广角教程）by风雪入我怀\n" +
+                "https://www.bilibili.com/video/BV1ht4y1s7oj\n");
+        event.getGroup().sendBlocking(message);
     }
 }

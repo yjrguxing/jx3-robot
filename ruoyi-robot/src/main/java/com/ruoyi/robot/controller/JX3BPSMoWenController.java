@@ -1,19 +1,19 @@
 package com.ruoyi.robot.controller;
 
 import com.ruoyi.robot.service.JX3BPSMoWenService;
-import com.ruoyi.robot.util.TimeUtil;
 import lombok.SneakyThrows;
 import love.forte.simboot.annotation.Filter;
 import love.forte.simboot.annotation.Listener;
 import love.forte.simboot.filter.MatchType;
 import love.forte.simbot.component.mirai.event.MiraiGroupMessageEvent;
+import love.forte.simbot.message.Image;
 import love.forte.simbot.message.Message;
+import love.forte.simbot.message.Messages;
 import love.forte.simbot.message.Text;
 import love.forte.simbot.resources.Resource;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.File;
-import java.util.Date;
 
 /**
  * 剑三莫问职业问答控制层
@@ -45,10 +45,11 @@ public class JX3BPSMoWenController {
                             "莫问试炼\n" +
                             "莫问浪客行\n" +
                             "风雷攻略\n" +
-                            "莫问精简选择\n" +
+                            "莫问精简\n" +
                             "莫问加速\n" +
                             "莫问配装\n" +
-                            "宏 莫问");
+                            "宏 莫问\n" +
+                            "莫问大群 871642468");
         } else {
             message = Text.of("请等待" + diffms + "秒再尝试！谢谢！");
         }
@@ -158,13 +159,130 @@ public class JX3BPSMoWenController {
         }
         event.getGroup().sendBlocking(message);
     }
+    @Listener
+    @Filter(value = "莫问配装",matchType = MatchType.TEXT_EQUALS)
+    public void getMoWenPeiZhuangMenu(MiraiGroupMessageEvent event){
+        Message message = null;
+        if (!throttle()) {
+            message = Text.of("莫问小橙武\n" +
+                    "莫问橙武\n" +
+                    "莫问副本武器\n" +
+                    "莫问速成\n" +
+                    "莫问平民\n" +
+                    "莫问精简");
+        } else {
+            message = Text.of("请等待" + diffms + "秒再尝试！谢谢！");
+        }
+        event.getGroup().sendBlocking(message);
+    }
+    /**
+     *莫问小橙武配装
+     */
     @SneakyThrows
     @Listener
-    @Filter(value = "莫问精简选择",matchType = MatchType.TEXT_EQUALS)
+    @Filter(value = "莫问小橙武",matchType = MatchType.TEXT_EQUALS)
+    public void getMoWenXiaoChengWu(MiraiGroupMessageEvent event){
+        Message message = null;
+        if (!throttle()) {
+            Image image1 = event.getBot().uploadImageBlocking(Resource.of(new File("ruoyi-robot/src/main/resources/Image/MoWen/莫问配装1.png")));
+            Image image2 = event.getBot().uploadImageBlocking(Resource.of(new File("ruoyi-robot/src/main/resources/Image/MoWen/莫问配装2.png")));
+            message = Messages.toMessages(image1, image2);
+        } else {
+            message = Text.of("请等待" + diffms + "秒再尝试！谢谢！");
+        }
+        event.getGroup().sendBlocking(message);
+    }
+    /**
+     *莫问橙武配装
+     */
+    @SneakyThrows
+    @Listener
+    @Filter(value = "莫问橙武",matchType = MatchType.TEXT_EQUALS)
+    public void getMoWenChengWu(MiraiGroupMessageEvent event){
+        Message message = null;
+        if (!throttle()) {
+            message = event.getBot().uploadImageBlocking(Resource.of(new File("ruoyi-robot/src/main/resources/Image/MoWen/莫问配装3.png")));
+        } else {
+            message = Text.of("请等待" + diffms + "秒再尝试！谢谢！");
+        }
+        event.getGroup().sendBlocking(message);
+    }
+    /**
+     * 莫问基本配装
+     */
+    @SneakyThrows
+    @Listener
+    @Filter(value = "莫问副本武器",matchType = MatchType.TEXT_EQUALS)
+    public void getMoWenJiBen(MiraiGroupMessageEvent event){
+        Message message = null;
+        if (!throttle()) {
+            Image image1 = event.getBot().uploadImageBlocking(Resource.of(new File("ruoyi-robot/src/main/resources/Image/MoWen/莫问配装4.png")));
+            Image image2 = event.getBot().uploadImageBlocking(Resource.of(new File("ruoyi-robot/src/main/resources/Image/MoWen/莫问配装5.png")));
+            message = Messages.toMessages(image1, image2);
+        } else {
+            message = Text.of("请等待" + diffms + "秒再尝试！谢谢！");
+        }
+        event.getGroup().sendBlocking(message);
+    }
+    /**
+     *莫问速成配装
+     */
+    @SneakyThrows
+    @Listener
+    @Filter(value = "莫问速成",matchType = MatchType.TEXT_EQUALS)
+    public void getMoWenSuCheng(MiraiGroupMessageEvent event){
+        Message message = null;
+        if (!throttle()) {
+            Image image1 = event.getBot().uploadImageBlocking(Resource.of(new File("ruoyi-robot/src/main/resources/Image/MoWen/莫问配装6.png")));
+            Image image2 = event.getBot().uploadImageBlocking(Resource.of(new File("ruoyi-robot/src/main/resources/Image/MoWen/莫问配装7.png")));
+            message = Messages.toMessages(image1, image2);
+        } else {
+            message = Text.of("请等待" + diffms + "秒再尝试！谢谢！");
+        }
+        event.getGroup().sendBlocking(message);
+    }
+    /**
+     *莫问平民配装
+     */
+    @SneakyThrows
+    @Listener
+    @Filter(value = "莫问平民",matchType = MatchType.TEXT_EQUALS)
+    public void getMoWenPingmin(MiraiGroupMessageEvent event){
+        Message message = null;
+        if (!throttle()) {
+            Image image1 = event.getBot().uploadImageBlocking(Resource.of(new File("ruoyi-robot/src/main/resources/Image/MoWen/莫问配装1.png")));
+            Image image2 = event.getBot().uploadImageBlocking(Resource.of(new File("ruoyi-robot/src/main/resources/Image/MoWen/莫问配装5.png")));
+            message = Messages.toMessages(image1, image2);
+        } else {
+            message = Text.of("请等待" + diffms + "秒再尝试！谢谢！");
+        }
+        event.getGroup().sendBlocking(message);
+    }
+    /**
+     *莫问精简配装
+     */
+    @SneakyThrows
+    @Listener
+    @Filter(value = "莫问精简",matchType = MatchType.TEXT_EQUALS)
+    public void getMoWenJingJian(MiraiGroupMessageEvent event){
+        Message message = null;
+        if (!throttle()) {
+            Image image1 = event.getBot().uploadImageBlocking(Resource.of(new File("ruoyi-robot/src/main/resources/Image/MoWen/莫问配装4.png")));
+            Image image2 = event.getBot().uploadImageBlocking(Resource.of(new File("ruoyi-robot/src/main/resources/Image/MoWen/莫问配装3.png")));
+            Image image3 = event.getBot().uploadImageBlocking(Resource.of(new File("ruoyi-robot/src/main/resources/Image/MoWen/莫问配装2.png")));
+            message = Messages.toMessages(image1, image2, image3);
+        } else {
+            message = Text.of("请等待" + diffms + "秒再尝试！谢谢！");
+        }
+        event.getGroup().sendBlocking(message);
+    }
+    @SneakyThrows
+    @Listener
+    @Filter(value = "莫问精简",matchType = MatchType.TEXT_EQUALS)
     public void getMoWenJingJianChoose(MiraiGroupMessageEvent event){
         Message message = null;
         if (!throttle()) {
-            message = event.getBot().uploadImageBlocking(Resource.of(new File(new File("ruoyi-robot/src/main/resources").getCanonicalPath() + "/Image/MoWen/莫问精简.png")));
+            message = event.getBot().uploadImageBlocking(Resource.of(new File("ruoyi-robot/src/main/resources/Image/MoWen/莫问精简.png")));
         } else {
             message = Text.of("请等待" + diffms + "秒再尝试！谢谢！");
         }

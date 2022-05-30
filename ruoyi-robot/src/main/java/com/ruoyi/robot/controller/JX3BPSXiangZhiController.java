@@ -71,7 +71,7 @@ public class JX3BPSXiangZhiController {
     @Listener
     @Filter(value = "奶歌配装",matchType = MatchType.TEXT_EQUALS)
     public void getXiangZhiPeiZhuang(MiraiGroupMessageEvent event){
-        Image image = event.getBot().uploadImageBlocking(Resource.of(new File(new File("ruoyi-robot/src/main/resources").getCanonicalPath() + "/Image/XiangZhi/相知配装.png")));
+        Image image = event.getBot().uploadImageBlocking(Resource.of(new File("ruoyi-robot/src/main/resources/Image/XiangZhi/相知配装.png")));
         Text textMessage = Text.of("奶歌配装\n先出啥要啥，一定优先满足好加速阈值！！！根据自己的运气、财力去抉择\n" +
                 "门派四件套必备（手脚必有其他部位三选二）\n大附魔随意，裤子打玉简\n小附魔加速没满打加速，加速满了打会心/治疗\n五彩石打会疗会效（内功/阴性的都可以）\n" +
                 "给一个配装图大概参考\n");
