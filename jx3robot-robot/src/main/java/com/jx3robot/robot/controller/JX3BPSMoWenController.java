@@ -45,7 +45,8 @@ public class JX3BPSMoWenController {
                             "莫问试炼\n" +
                             "莫问浪客行\n" +
                             "风雷攻略\n" +
-                            "莫问精简\n" +
+                            "懒咕精简\n" +
+                            "莫问小药\n" +
                             "莫问加速\n" +
                             "莫问配装\n" +
                             "宏 莫问\n" +
@@ -55,7 +56,27 @@ public class JX3BPSMoWenController {
         }
         event.getGroup().sendBlocking(message);
     }
-
+    @Listener
+    @Filter(value = "莫问小药",matchType = MatchType.TEXT_EQUALS)
+    public void getMoWenXiaoYao(MiraiGroupMessageEvent event){
+        Message message = null;
+        if (!throttle()) {
+            message = Text.of("莫问小药\n" +
+                    "根据不同配装属性和不同环境，小药等的最优选择不同，以最新版本计算器为准。此处仅列出收益较高的进行参考，可根据自己的经济实力和性价比等进行选择。枫影插件集的查询功能可以帮助我们快速找到对应的小药。\n" +
+                    "加速相关的小吃小药不计入排序，部分配装可以通过小药补加速达到更高的加速阈值从而显著地提升DPS。\n" +
+                    "辅助类食品：193根骨[奉天·咸骨粥]＞113根骨[奉天·老火骨汤]\n" +
+                    "辅助类药品：248根骨[奉天·上品静心丸]＞146根骨[奉天·中品静心丸]\n" +
+                    "增强类食品：462内攻[奉天·灌汤包]/859破防[奉天·红烧排骨]/859会心[奉天·酸菜鱼]＞272内攻[奉天·鲜肉包子]/506破防[奉天·水煮肉片]/506会心[奉天·鱼香肉丝]\n" +
+                    "增强类药品：594内攻[奉天·上品展凤散]/1105破防[奉天·上品破秽散]/1105会心[奉天·上品玉璃散]＞347内攻[奉天·中品展凤散]/650破防[奉天·中品破秽散]/650会心[奉天·中品玉璃散]\n" +
+                    "武器磨石：396内攻[奉天·坠宵熔锭（内攻）]＞233内攻[奉天·坠宵磨石（内攻）]\n" +
+                    "家园酿酒：96根骨[高粱酒·旬又三]＞72根骨[高粱酒·六日醉]＞48根骨[高粱酒·今朝醉]＞24根骨[高粱酒]\n" +
+                    "家园小吃：[创意食品·盛]（要刷出内功的-破招/-血量 +会心破防无双的）＞149内攻[小炒青菜]＞277破防[清蒸鲈鱼]/277会心[炸鱼干]/277无双[炖豆腐]\n" +
+                    "[创意食品·盛]的制作：家园灶台放60个食材即可。\n");
+        } else {
+            message = Text.of("请等待" + diffms + "秒再尝试！谢谢！");
+        }
+        event.getGroup().sendBlocking(message);
+    }
     @Listener
     @Filter(value = "莫问白皮书",matchType = MatchType.TEXT_EQUALS)
     public void getMoWenWhitePaper(MiraiGroupMessageEvent event){
@@ -148,12 +169,14 @@ public class JX3BPSMoWenController {
     public void getMoWenSpeed(MiraiGroupMessageEvent event){
         Message message = null;
         if (!throttle()) {
-            message = Text.of("莫问加速\n大橙武6296/4540\n" +
+            message = Text.of("莫问加速\n" +
+                    "大橙武6296 如果没出加速暗器可以暂时4540\n" +
                     "小橙武4540/2956\n" +
                     "其他武器2956\n" +
-                    "4540是影子的阈值 相比4026有较大提升\n" +
-                    "非大橙武不推荐6296是因为大橙武特效可以回复徵充能 而其他武器不能 导致后期打羽\n" +
-                    "4540和2956相比容易掉dot 如果续不上建议2956");
+                    "4540是影子的阈值 相比4026有较大提升 游戏内枫影插件集没显示\n" +
+                    "非大橙武不推荐6296是因为大橙武特效可以回复徵充能 而其他武器不能 导致后期多打羽\n" +
+                    "4540和2956相比容易掉dot 计算器4540档不考虑续dot问题 如果实战频繁掉dot 请走2956\n" +
+                    "想要深入研究的可以查阅白皮书相关章节\n");
         } else {
             message = Text.of("请等待" + diffms + "秒再尝试！谢谢！");
         }
@@ -164,12 +187,15 @@ public class JX3BPSMoWenController {
     public void getMoWenPeiZhuangMenu(MiraiGroupMessageEvent event){
         Message message = null;
         if (!throttle()) {
-            message = Text.of("莫问小橙武\n" +
-                    "莫问橙武\n" +
-                    "莫问副本武器\n" +
-                    "莫问速成\n" +
-                    "莫问平民\n" +
-                    "莫问精简");
+            message = Text.of("莫问配装\n" +
+                    "————————\n" +
+                    "莫问速成配装\n" +
+                    "莫问平民配装\n" +
+                    "莫问精简配装\n" +
+                    "————————\n" +
+                    "莫问副本武器配装\n" +
+                    "莫问小橙武配装\n" +
+                    "莫问大橙武配装");
         } else {
             message = Text.of("请等待" + diffms + "秒再尝试！谢谢！");
         }
@@ -180,7 +206,7 @@ public class JX3BPSMoWenController {
      */
     @SneakyThrows
     @Listener
-    @Filter(value = "莫问小橙武",matchType = MatchType.TEXT_EQUALS)
+    @Filter(value = "莫问小橙武配装",matchType = MatchType.TEXT_EQUALS)
     public void getMoWenXiaoChengWu(MiraiGroupMessageEvent event){
         Message message = null;
         if (!throttle()) {
@@ -197,7 +223,7 @@ public class JX3BPSMoWenController {
      */
     @SneakyThrows
     @Listener
-    @Filter(value = "莫问橙武",matchType = MatchType.TEXT_EQUALS)
+    @Filter(value = "莫问大橙武配装",matchType = MatchType.TEXT_EQUALS)
     public void getMoWenChengWu(MiraiGroupMessageEvent event){
         Message message = null;
         if (!throttle()) {
@@ -212,7 +238,7 @@ public class JX3BPSMoWenController {
      */
     @SneakyThrows
     @Listener
-    @Filter(value = "莫问副本武器",matchType = MatchType.TEXT_EQUALS)
+    @Filter(value = "莫问副本武器配装",matchType = MatchType.TEXT_EQUALS)
     public void getMoWenJiBen(MiraiGroupMessageEvent event){
         Message message = null;
         if (!throttle()) {
@@ -229,7 +255,7 @@ public class JX3BPSMoWenController {
      */
     @SneakyThrows
     @Listener
-    @Filter(value = "莫问速成",matchType = MatchType.TEXT_EQUALS)
+    @Filter(value = "莫问速成配装",matchType = MatchType.TEXT_EQUALS)
     public void getMoWenSuCheng(MiraiGroupMessageEvent event){
         Message message = null;
         if (!throttle()) {
@@ -246,7 +272,7 @@ public class JX3BPSMoWenController {
      */
     @SneakyThrows
     @Listener
-    @Filter(value = "莫问平民",matchType = MatchType.TEXT_EQUALS)
+    @Filter(value = "莫问平民配装",matchType = MatchType.TEXT_EQUALS)
     public void getMoWenPingmin(MiraiGroupMessageEvent event){
         Message message = null;
         if (!throttle()) {
@@ -263,7 +289,7 @@ public class JX3BPSMoWenController {
      */
     @SneakyThrows
     @Listener
-    @Filter(value = "莫问精简",matchType = MatchType.TEXT_EQUALS)
+    @Filter(value = "莫问精简配装",matchType = MatchType.TEXT_EQUALS)
     public void getMoWenJingJian(MiraiGroupMessageEvent event){
         Message message = null;
         if (!throttle()) {
@@ -278,11 +304,12 @@ public class JX3BPSMoWenController {
     }
     @SneakyThrows
     @Listener
-    @Filter(value = "莫问精简",matchType = MatchType.TEXT_EQUALS)
+    @Filter(value = "懒咕精简",matchType = MatchType.TEXT_EQUALS)
     public void getMoWenJingJianChoose(MiraiGroupMessageEvent event){
         Message message = null;
         if (!throttle()) {
             message = event.getBot().uploadImageBlocking(Resource.of(new File("jx3robot-robot/src/main/resources/Image/MoWen/莫问精简.png")));
+//            message = Text.of("内容在修改中哦！请稍候！");
         } else {
             message = Text.of("请等待" + diffms + "秒再尝试！谢谢！");
         }
@@ -293,8 +320,10 @@ public class JX3BPSMoWenController {
     public void getMoWenintroduction(MiraiGroupMessageEvent event){
         Message message = null;
         if (!throttle()) {
-            message = Text.of("莫问一分钟入门\n起手：孤影开 羽影 商影 角影 孤影关\n" +
-                    "宏：\n" +
+            message = Text.of("莫问一分钟入门\n" +
+                    "起手：\n" +
+                    "孤影开 羽影 商影 角影 孤影关\n" +
+                    "无脑一键宏：\n" +
                     "/cast [tbufftime:商<6] 高山流水\n" +
                     "/fcast 阳春白雪\n" +
                     "/cast [tnobuff:商] 商\n" +
@@ -303,11 +332,20 @@ public class JX3BPSMoWenController {
                     "/cast [buff:书离] 徵\n" +
                     "/cast 羽\n" +
                     "/cast 疏影横斜\n" +
-                    "奇穴：伏疏 飞帆 逐华 流照 豪情 师襄 知止 刻梦 书离 云汉 参连 无尽藏\n" +
-                    "装备：大附魔用玉简 加速2956 小橙武溢出过多可选4540（影子阈值）破招3000左右或者更低 破防无双基本平衡 会心30左右\n" +
+                    "奇穴：\n" +
+                    "伏疏 飞帆 逐华 流照 豪情 师襄 知止 刻梦 书离 云汉 参连 无尽藏\n" +
+                    "装备：\n" +
+                    "大附魔用玉简 加速2956 小橙武溢出过多可选4540（影子阈值）\n" +
+                    "破招3000左右或者更低 破防无双基本平衡 会心30左右\n" +
+                    "五彩石用 无双/会心/破防-攻击-会心效果\n" +
+                    "阵法：\n" +
+                    "尽量自己开阵 不行的话吃和尚阵/队友莫问阵/花间阵 都没有的话再吃田螺阵/气纯阵\n" +
+                    "其他设置：\n" +
                     "游戏设置-特殊门派设置-勾选自动释放阳春白雪\n" +
                     "剑心插件集-技能增强-影子释放模式选择鼠标射线\n" +
-                    "自己开阵＞和尚阵＞队友莫问阵＞田螺阵＞气纯阵");
+                    "技能数：\n" +
+                    "徵:流照:流照·音尽＝4:8:1 战斗中不断dot 即为合格\n" +
+                    "其他请看白皮书和莫问大群的群公告\n");
         } else {
             message = Text.of("请等待" + diffms + "秒再尝试！谢谢！");
         }
