@@ -32,7 +32,8 @@ public class JX3BPSLingXueGeController {
                             "凌雪计算器\n" +
                             "凌雪宏百科\n" +
                             "凌雪赛季指北\n" +
-                            "凌雪双乱木桩视频\n");
+                            "凌雪双乱木桩视频\n" +
+                            "凌雪群");
         } else {
             message = Text.of("请等待" + diffms + "秒再尝试！谢谢！");
         }
@@ -103,6 +104,19 @@ public class JX3BPSLingXueGeController {
         }
         event.getGroup().sendBlocking(message);
     }
+    @Listener
+    @Filter(value = "凌雪群",matchType = MatchType.TEXT_EQUALS)
+    public void getLingXueGeGroup(MiraiGroupMessageEvent event){
+        Message message = null;
+        if (!throttle()) {
+            message = Text.of("1群:906422449\n" +
+                    "2群:328612439");
+        } else {
+            message = Text.of("请等待" + diffms + "秒再尝试！谢谢！");
+        }
+        event.getGroup().sendBlocking(message);
+    }
+
     /**
      * 需要节流返回true<br/>
      * @author psyduck

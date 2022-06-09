@@ -83,7 +83,8 @@ public class JX3BPSYanTianController {
     @Listener
     @Filter(value = "衍天3分钟技能数",matchType = MatchType.TEXT_EQUALS)
     public void getYanTianThree(MiraiGroupMessageEvent event){
-        Message message = Text.of("25斗93兵148灵器37临87火160天网+（奇穴 天网 连断 亘天 增卜）有玉简大附魔");
+        Message message = Text.of("有大附魔点亘天 25斗 35临 90兵 145灵器 160+天网\n" +
+                "无大附魔点祝祷 30斗 30临 90兵145灵器 160+天网");
         event.getGroup().sendBlocking(message);
     }
     @Listener
