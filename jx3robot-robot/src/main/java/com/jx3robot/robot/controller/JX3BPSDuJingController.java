@@ -26,8 +26,7 @@ public class JX3BPSDuJingController {
                         "毒经试炼\n" +
                         "毒经计算器\n" +
                         "毒经配装\n" +
-                        "毒经群\n" +
-                        "O大是谁");
+                        "毒经群");
         event.getGroup().sendBlocking(message);
     }
     @Listener
@@ -60,20 +59,7 @@ public class JX3BPSDuJingController {
                         "https://www.jx3box.com/macro/18608\n" +
                         "-----\n" +
                         "云端宏使用指南\n" +
-                        "https://www.jx3box.com/tool/18152\n" +
-                        "\n" +
-                        "【特殊】毒经 朧月Oboroduki#桃僵\n" +
-                        "/cast 凤凰蛊\n" +
-                        "/cast 蛊虫献祭\n" +
-                        "/cast 蛊虫狂暴\n" +
-                        "/fcast 幻击\n" +
-                        "/cast 蛇影\n" +
-                        "/cast 百足\n" +
-                        "/cast 蝎心\n" +
-                        "/cast 蟾啸\n" +
-                        "/cast 千丝\n" +
-                        "注：手动招蛇，手动攻击，手动灵蛊，适配玉简\n" +
-                        "奇穴：略");
+                        "https://www.jx3box.com/tool/18152");
         event.getGroup().sendBlocking(message);
     }
 

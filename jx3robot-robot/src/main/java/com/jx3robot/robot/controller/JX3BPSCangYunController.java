@@ -26,7 +26,21 @@ public class JX3BPSCangYunController {
                         "分山木桩视频\n" +
                         "分山宏\n" +
                         "分山试炼之地\n" +
-                        "分山浪客行");
+                        "分山浪客行\n" +
+                        "分山设置");
+        event.getGroup().sendBlocking(message);
+    }
+
+    @Listener
+    @Filter(value = "分山设置",matchType = MatchType.TEXT_EQUALS)
+    public void getFenShanOption(MiraiGroupMessageEvent event){
+        Message message = Text.of("按键精灵和鼠标宏教程是焚影的，感谢陆寻寻赞助。\n" +
+                "按键精灵设置教程@陆寻寻\n" +
+                "https://docs.qq.com/doc/DUWVDVXVyYWN4cWRu\n" +
+                "罗技鼠标宏设置教程@陆寻寻\n" +
+                "https://docs.qq.com/doc/DUUxsbHlBZkJzelp3\n" +
+                "雷蛇鼠标宏设置教程@陆晚洲\n" +
+                "https://docs.qq.com/doc/DSXNTeGdDaXdUY2dR");
         event.getGroup().sendBlocking(message);
     }
 

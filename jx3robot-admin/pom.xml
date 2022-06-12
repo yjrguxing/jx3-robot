@@ -79,6 +79,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>2.1.1.RELEASE</version>
                 <configuration>
+                    <mainClass>com.jx3robot.RuoYiApplication</mainClass>
                     <fork>true</fork> <!-- 如果没有该配置，devtools不会生效 -->
                 </configuration>
                 <executions>
