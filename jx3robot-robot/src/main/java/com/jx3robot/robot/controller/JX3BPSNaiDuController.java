@@ -1,5 +1,6 @@
 package com.jx3robot.robot.controller;
 
+import com.jx3robot.robot.util.FileUtil;
 import lombok.SneakyThrows;
 import love.forte.simboot.annotation.Filter;
 import love.forte.simboot.annotation.Listener;
@@ -63,11 +64,11 @@ public class JX3BPSNaiDuController {
     public void getNaiDuQiXue(MiraiGroupMessageEvent event){
         Text message1 = Text.of("纯单体掉血和奶npcboss");
         Text message2 = Text.of("Aoe掉血boss");
-        Image naiDuQiXue1 = event.getBot().uploadImageBlocking(Resource.of(new File("./jx3robot-robot/src/main/resources/Image/NaiDu/奶毒奇穴1.png")));
-        Image naiDuQiXue2 = event.getBot().uploadImageBlocking(Resource.of(new File("./jx3robot-robot/src/main/resources/Image/NaiDu/奶毒奇穴2.png")));
-        Image naiDuQiXue3 = event.getBot().uploadImageBlocking(Resource.of(new File("./jx3robot-robot/src/main/resources/Image/NaiDu/奶毒奇穴3.png")));
-        Image naiDuQiXue4 = event.getBot().uploadImageBlocking(Resource.of(new File("./jx3robot-robot/src/main/resources/Image/NaiDu/奶毒奇穴4.png")));
-        Image naiDuQiXue5 = event.getBot().uploadImageBlocking(Resource.of(new File("./jx3robot-robot/src/main/resources/Image/NaiDu/奶毒奇穴5.png")));
+        Image naiDuQiXue1 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getClassLoaderFileInputStream("/NaiDu/奶毒奇穴1.png")));
+        Image naiDuQiXue2 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getClassLoaderFileInputStream("/NaiDu/奶毒奇穴2.png")));
+        Image naiDuQiXue3 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getClassLoaderFileInputStream("/NaiDu/奶毒奇穴3.png")));
+        Image naiDuQiXue4 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getClassLoaderFileInputStream("/NaiDu/奶毒奇穴4.png")));
+        Image naiDuQiXue5 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getClassLoaderFileInputStream("/NaiDu/奶毒奇穴5.png")));
         Text message3 = Text.of("穿透aoe较多boss可选择将绮栊换织心。持续性掉血boss固定蛊梦绮栊。其他aoe模型的boss可视自身习惯选择冰蚕流。有cw全程织心。");
         Messages messages = Messages.toMessages(
                 message1,
@@ -92,8 +93,8 @@ public class JX3BPSNaiDuController {
                 "视赛季boss掉血模型也可以低加速增加奶毒爆发治疗，比如白帝赛季主要靠蝶池和千蝶抬血。\n" +
                 "沐风必要。\n" +
                 "两套配装里面觉得会心或纯疗不符合自身习惯，就把散件互换就行。");
-        Image naiDuPeiZhuang1 = event.getBot().uploadImageBlocking(Resource.of(new File("./jx3robot-robot/src/main/resources/Image/NaiDu/奶毒配装1.png")));
-        Image naiDuPeiZhuang2 = event.getBot().uploadImageBlocking(Resource.of(new File("./jx3robot-robot/src/main/resources/Image/NaiDu/奶毒配装2.png")));
+        Image naiDuPeiZhuang1 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getClassLoaderFileInputStream("/NaiDu/奶毒配装1.png")));
+        Image naiDuPeiZhuang2 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getClassLoaderFileInputStream("/NaiDu/奶毒配装2.png")));
         Messages messages = Messages.toMessages(message1, naiDuPeiZhuang1, naiDuPeiZhuang2);
         event.getGroup().sendBlocking(messages);
     }

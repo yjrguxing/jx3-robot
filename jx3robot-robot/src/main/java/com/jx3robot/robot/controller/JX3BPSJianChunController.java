@@ -1,5 +1,7 @@
 package com.jx3robot.robot.controller;
 
+import com.jx3robot.robot.util.FileUtil;
+import lombok.SneakyThrows;
 import love.forte.simboot.annotation.Filter;
 import love.forte.simboot.annotation.Listener;
 import love.forte.simboot.filter.MatchType;
@@ -48,18 +50,19 @@ public class JX3BPSJianChunController {
                         "无意循环概述：https://www.jx3box.com/bps/40866\n");
         event.getGroup().sendBlocking(message);
     }
+    @SneakyThrows
     @Listener
     @Filter(value = "剑纯奇穴",matchType = MatchType.TEXT_EQUALS)
     public void getJianChunQiXue(MiraiGroupMessageEvent event){
         Text text1 = Text.of(
                 "镜花影流派【单体推荐，较难】\n");
-        Image image1 = event.getBot().uploadImageBlocking(Resource.of(new File("./jx3robot-robot/src/main/resources/Image/JianChun/剑纯奇穴1.png")));
+        Image image1 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getClassLoaderFileInputStream("/JianChun/剑纯奇穴1.png")));
         Text text2 = Text.of(
                 "云中剑流派：【群攻推荐】\n");
-        Image image2 = event.getBot().uploadImageBlocking(Resource.of(new File("./jx3robot-robot/src/main/resources/Image/JianChun/剑纯奇穴2.png")));
+        Image image2 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getClassLoaderFileInputStream("/JianChun/剑纯奇穴2.png")));
         Text text3 = Text.of(
                 "无意流派：\n");
-        Image image3 = event.getBot().uploadImageBlocking(Resource.of(new File("./jx3robot-robot/src/main/resources/Image/JianChun/剑纯奇穴3.png")));
+        Image image3 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getClassLoaderFileInputStream("/JianChun/剑纯奇穴3.png")));
         Text text4 = Text.of(
                 "分歧选择：\n" +
                         "群攻且不缺蓝时：第三层【化三清】换【白虹】\n" +
@@ -98,18 +101,20 @@ public class JX3BPSJianChunController {
                 "当前江湖无限赛季配装核心思路为建立在【牌子2件套】激活剑鸣特效的基础上（一般使用头脚）自由搭配\n常用切糕衣服与切糕腰带/护腕加一个护腕/腰带精简及精简裤子\n一般必备特效腰坠（与剑纯紫气爆发对齐收益较高）\n具体可参考剑纯云中剑计算器（准确但麻烦）或查询懒羊羊配装（便捷但不总是准）。");
         event.getGroup().sendBlocking(message);
     }
+    @SneakyThrows
     @Listener
     @Filter(value = "剑纯懒羊羊配装",matchType = MatchType.TEXT_EQUALS)
     public void getJianChunSimplePeiZhuang(MiraiGroupMessageEvent event){
-        Image image1 = event.getBot().uploadImageBlocking(Resource.of(new File("./jx3robot-robot/src/main/resources/Image/JianChun/剑纯配装1.png")));
-        Image image2 = event.getBot().uploadImageBlocking(Resource.of(new File("./jx3robot-robot/src/main/resources/Image/JianChun/剑纯配装2.png")));
+        Image image1 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getClassLoaderFileInputStream("/JianChun/剑纯配装1.png")));
+        Image image2 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getClassLoaderFileInputStream("/JianChun/剑纯配装2.png")));
         Messages messages = Messages.toMessages(image1, image2);
         event.getGroup().sendBlocking(messages);
     }
+    @SneakyThrows
     @Listener
     @Filter(value = "剑纯镜花影小灰灰一图流",matchType = MatchType.TEXT_EQUALS)
     public void getJianChunJHYSimplePeiZhuang(MiraiGroupMessageEvent event){
-        Image image1 = event.getBot().uploadImageBlocking(Resource.of(new File("./jx3robot-robot/src/main/resources/Image/JianChun/剑纯配装3.png")));
+        Image image1 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getClassLoaderFileInputStream("/JianChun/剑纯配装3.png")));
         event.getGroup().sendBlocking(image1);
     }
     @Listener

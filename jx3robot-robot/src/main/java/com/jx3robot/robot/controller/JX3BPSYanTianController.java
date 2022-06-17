@@ -1,5 +1,6 @@
 package com.jx3robot.robot.controller;
 
+import com.jx3robot.robot.util.FileUtil;
 import lombok.SneakyThrows;
 import love.forte.simboot.annotation.Filter;
 import love.forte.simboot.annotation.Listener;
@@ -104,7 +105,7 @@ public class JX3BPSYanTianController {
     @Listener
     @Filter(value = "衍天小药推荐",matchType = MatchType.TEXT_EQUALS)
     public void getYanTianXiaoYao(MiraiGroupMessageEvent event){
-        Image image = event.getBot().uploadImageBlocking(Resource.of(new File("./jx3robot-robot/src/main/resources/Image/YanTian/衍天小药.png")));
+        Image image = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getClassLoaderFileInputStream("/YanTian/衍天小药.png")));
         event.getGroup().sendBlocking(image);
     }
     @Listener
