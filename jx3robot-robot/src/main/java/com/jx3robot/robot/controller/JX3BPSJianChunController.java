@@ -53,13 +53,13 @@ public class JX3BPSJianChunController {
     public void getJianChunQiXue(MiraiGroupMessageEvent event){
         Text text1 = Text.of(
                 "镜花影流派【单体推荐，较难】\n");
-        Image image1 = event.getBot().uploadImageBlocking(Resource.of(new File("jx3robot-robot/src/main/resources/Image/JianChun/剑纯奇穴1.png")));
+        Image image1 = event.getBot().uploadImageBlocking(Resource.of(new File("./jx3robot-robot/src/main/resources/Image/JianChun/剑纯奇穴1.png")));
         Text text2 = Text.of(
                 "云中剑流派：【群攻推荐】\n");
-        Image image2 = event.getBot().uploadImageBlocking(Resource.of(new File("jx3robot-robot/src/main/resources/Image/JianChun/剑纯奇穴2.png")));
+        Image image2 = event.getBot().uploadImageBlocking(Resource.of(new File("./jx3robot-robot/src/main/resources/Image/JianChun/剑纯奇穴2.png")));
         Text text3 = Text.of(
                 "无意流派：\n");
-        Image image3 = event.getBot().uploadImageBlocking(Resource.of(new File("jx3robot-robot/src/main/resources/Image/JianChun/剑纯奇穴3.png")));
+        Image image3 = event.getBot().uploadImageBlocking(Resource.of(new File("./jx3robot-robot/src/main/resources/Image/JianChun/剑纯奇穴3.png")));
         Text text4 = Text.of(
                 "分歧选择：\n" +
                         "群攻且不缺蓝时：第三层【化三清】换【白虹】\n" +
@@ -101,15 +101,15 @@ public class JX3BPSJianChunController {
     @Listener
     @Filter(value = "剑纯懒羊羊配装",matchType = MatchType.TEXT_EQUALS)
     public void getJianChunSimplePeiZhuang(MiraiGroupMessageEvent event){
-        Image image1 = event.getBot().uploadImageBlocking(Resource.of(new File("jx3robot-robot/src/main/resources/Image/JianChun/剑纯配装1.png")));
-        Image image2 = event.getBot().uploadImageBlocking(Resource.of(new File("jx3robot-robot/src/main/resources/Image/JianChun/剑纯配装2.png")));
+        Image image1 = event.getBot().uploadImageBlocking(Resource.of(new File("./jx3robot-robot/src/main/resources/Image/JianChun/剑纯配装1.png")));
+        Image image2 = event.getBot().uploadImageBlocking(Resource.of(new File("./jx3robot-robot/src/main/resources/Image/JianChun/剑纯配装2.png")));
         Messages messages = Messages.toMessages(image1, image2);
         event.getGroup().sendBlocking(messages);
     }
     @Listener
     @Filter(value = "剑纯镜花影小灰灰一图流",matchType = MatchType.TEXT_EQUALS)
     public void getJianChunJHYSimplePeiZhuang(MiraiGroupMessageEvent event){
-        Image image1 = event.getBot().uploadImageBlocking(Resource.of(new File("jx3robot-robot/src/main/resources/Image/JianChun/剑纯配装3.png")));
+        Image image1 = event.getBot().uploadImageBlocking(Resource.of(new File("./jx3robot-robot/src/main/resources/Image/JianChun/剑纯配装3.png")));
         event.getGroup().sendBlocking(image1);
     }
     @Listener
