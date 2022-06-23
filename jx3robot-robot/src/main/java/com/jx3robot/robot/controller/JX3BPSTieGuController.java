@@ -49,10 +49,10 @@ public class JX3BPSTieGuController {
     @Listener
     @Filter(value = "铁骨配装",matchType = MatchType.TEXT_EQUALS)
     public void getTieGuPeiZhuang(MiraiGroupMessageEvent event){
-        Image image2 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getClassLoaderFileInputStream("/TieGu/铁骨配装2.png")));
-        Image image1 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getClassLoaderFileInputStream("/TieGu/铁骨配装1.png")));
-        Image image3 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getClassLoaderFileInputStream("/TieGu/铁骨配装3.png")));
-        Image image4 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getClassLoaderFileInputStream("/TieGu/铁骨配装4.png")));
+        Image image2 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getFileInputStream("/Image/TieGu/铁骨配装2.png")));
+        Image image1 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getFileInputStream("/Image/TieGu/铁骨配装1.png")));
+        Image image3 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getFileInputStream("/Image/TieGu/铁骨配装3.png")));
+        Image image4 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getFileInputStream("/Image/TieGu/铁骨配装4.png")));
         Messages messages = Messages.toMessages(image1, image2, image3, image4);
         event.getGroup().sendBlocking(messages);
     }

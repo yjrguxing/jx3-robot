@@ -10,7 +10,17 @@ import java.io.InputStream;
  * @version 1.0
  **/
 public class FileUtil {
-    public static InputStream getClassLoaderFileInputStream(String fileName){
-        return FileUtil.class.getClassLoader().getResourceAsStream(fileName);
+    /**
+     * 获取文件输入流<br/>
+     * 对打包后环境和运行环境做了自动适应
+     * @param fileName 文件路径 从Resource或根路径开始写
+     * @author psyduck
+     * @date 2022/6/18 19:43
+     * @return java.io.InputStream
+     */
+    public static InputStream getFileInputStream(String fileName){
+        return FileUtil.class.getClassLoader().getResourceAsStream(fileName) == null ?
+                FileUtil.class.getResourceAsStream(fileName) : FileUtil.class.getClassLoader().getResourceAsStream(fileName);
     }
+
 }

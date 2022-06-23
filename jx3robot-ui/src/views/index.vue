@@ -9,9 +9,14 @@
           </div>
           <div class="body">
             <img
-              src="https://oscimg.oschina.net/oscnet/up-d6695f82666e5018f715c41cb7ee60d3b73.png"
+              src = "@/assets/images/捐赠支持/vx.png"
               alt="donate"
-              width="100%"
+              width="50%"
+            />
+            <img
+              src = "@/assets/images/捐赠支持/zfb.png"
+              alt="donate"
+              width="50%"
             />
             <span style="display: inline-block; height: 30px; line-height: 30px"
               >你可以请作者喝杯咖啡表示鼓励</span

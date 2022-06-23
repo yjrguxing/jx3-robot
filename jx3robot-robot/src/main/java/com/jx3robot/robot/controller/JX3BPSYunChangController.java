@@ -78,7 +78,7 @@ public class JX3BPSYunChangController {
     @Listener
     @Filter(value = "奶秀配装",matchType = MatchType.TEXT_EQUALS)
     public void getYunChangPeiZhuang(MiraiGroupMessageEvent event){
-        Image image = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getClassLoaderFileInputStream("/NaiXiu/奶秀配装.png")));
+        Image image = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getFileInputStream("/Image/NaiXiu/奶秀配装.png")));
         Text textMessage = Text.of("配装需要满足的条件按照优先级从高到低：8780加速——四件套——\n" +
                 "特效腰坠/特效武器——会疗会五彩石。大附魔残卷玉简皆可，实战表现差别不大。\n" +
                 "参考配装:\n");

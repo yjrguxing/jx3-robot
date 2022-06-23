@@ -64,9 +64,9 @@ public class JX3BPSTieLaoController {
     @Listener
     @Filter(value = "铁牢配装",matchType = MatchType.TEXT_EQUALS)
     public void getTieLaoPeiZhuang(MiraiGroupMessageEvent event){
-        Image image1 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getClassLoaderFileInputStream("/TieLao/铁牢配装1.png")));
-        Image image2 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getClassLoaderFileInputStream("/TieLao/铁牢配装2.png")));
-        Image image3 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getClassLoaderFileInputStream("/TieLao/铁牢配装3.png")));
+        Image image1 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getFileInputStream("/Image/TieLao/铁牢配装1.png")));
+        Image image2 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getFileInputStream("/Image/TieLao/铁牢配装2.png")));
+        Image image3 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getFileInputStream("/Image/TieLao/铁牢配装3.png")));
         Messages message = Messages.toMessages(image1, image2, image3);
         event.getGroup().sendBlocking(message);
     }
@@ -75,11 +75,11 @@ public class JX3BPSTieLaoController {
     @Filter(value = "铁牢奇穴",matchType = MatchType.TEXT_EQUALS)
     public void getTieLaoQiXue(MiraiGroupMessageEvent event){
         Text message1 = Text.of("1.常规纯坦奇穴\n" + "此为纯坦主T流派的通用奇穴，适合单拉。利用双突+御作为常驻减伤，大山和虎作为应急减伤。\n");
-        Image image1 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getClassLoaderFileInputStream("/TieLao/奇穴1.png")));
+        Image image1 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getFileInputStream("/Image/TieLao/奇穴1.png")));
         Text message2 = Text.of("\n2.常规输出奇穴\n" + "此为输出主T流派的通用奇穴，保留铁牢基本增益。力破万钧在通常情况下一般点不出来，所以不做考虑。\n");
-        Image image2 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getClassLoaderFileInputStream("/TieLao/奇穴2.png")));
+        Image image2 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getFileInputStream("/Image/TieLao/奇穴2.png")));
         Text message3 = Text.of("\n3.群拉/群攻奇穴\n" + "此为铁牢群攻奇穴，使用战八方作为主要群体仇恨输出技能，烈雷作为群体强仇。目前适用于所有需要群拉的场合，包括河阳老三。\n");
-        Image image3 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getClassLoaderFileInputStream("/TieLao/奇穴3.png")));
+        Image image3 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getFileInputStream("/Image/TieLao/奇穴3.png")));
         Messages message = Messages.toMessages(message1,image1,message2, image2,message3, image3);
         event.getGroup().sendBlocking(message);
     }

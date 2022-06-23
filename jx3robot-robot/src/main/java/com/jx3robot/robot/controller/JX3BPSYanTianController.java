@@ -105,7 +105,7 @@ public class JX3BPSYanTianController {
     @Listener
     @Filter(value = "衍天小药推荐",matchType = MatchType.TEXT_EQUALS)
     public void getYanTianXiaoYao(MiraiGroupMessageEvent event){
-        Image image = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getClassLoaderFileInputStream("/YanTian/衍天小药.png")));
+        Image image = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getFileInputStream("/Image/YanTian/衍天小药.png")));
         event.getGroup().sendBlocking(image);
     }
     @Listener

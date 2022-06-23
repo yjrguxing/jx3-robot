@@ -15,6 +15,8 @@ import love.forte.simbot.resources.Resource;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.File;
+import java.io.InputStream;
+import java.net.URL;
 
 /**
  * 剑三莫问职业问答控制层
@@ -211,8 +213,11 @@ public class JX3BPSMoWenController {
     public void getMoWenXiaoChengWu(MiraiGroupMessageEvent event){
         Message message = null;
         if (!throttle()) {
-            Image image1 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getClassLoaderFileInputStream("/MoWen/莫问配装1.png")));
-            Image image2 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getClassLoaderFileInputStream("/MoWen/莫问配装2.png")));
+            InputStream Image1FileInputStream = FileUtil.getFileInputStream("/Image/MoWen/莫问配装1.png");
+            InputStream Image2FileInputStream = FileUtil.getFileInputStream("/Image/MoWen/莫问配装2.png");
+
+            Image image1 = event.getBot().uploadImageBlocking(Resource.of(Image1FileInputStream));
+            Image image2 = event.getBot().uploadImageBlocking(Resource.of(Image2FileInputStream));
             message = Messages.toMessages(image1, image2);
         } else {
             message = Text.of("请等待" + diffms + "秒再尝试！谢谢！");
@@ -228,7 +233,7 @@ public class JX3BPSMoWenController {
     public void getMoWenChengWu(MiraiGroupMessageEvent event){
         Message message = null;
         if (!throttle()) {
-            message = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getClassLoaderFileInputStream("/MoWen/莫问配装3.png")));
+            message = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getFileInputStream("/Image/MoWen/莫问配装3.png")));
         } else {
             message = Text.of("请等待" + diffms + "秒再尝试！谢谢！");
         }
@@ -243,8 +248,8 @@ public class JX3BPSMoWenController {
     public void getMoWenJiBen(MiraiGroupMessageEvent event){
         Message message = null;
         if (!throttle()) {
-            Image image1 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getClassLoaderFileInputStream("/MoWen/莫问配装4.png")));
-            Image image2 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getClassLoaderFileInputStream("/MoWen/莫问配装5.png")));
+            Image image1 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getFileInputStream("/Image/MoWen/莫问配装4.png")));
+            Image image2 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getFileInputStream("/Image/MoWen/莫问配装5.png")));
             message = Messages.toMessages(image1, image2);
         } else {
             message = Text.of("请等待" + diffms + "秒再尝试！谢谢！");
@@ -260,8 +265,8 @@ public class JX3BPSMoWenController {
     public void getMoWenSuCheng(MiraiGroupMessageEvent event){
         Message message = null;
         if (!throttle()) {
-            Image image1 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getClassLoaderFileInputStream("/MoWen/莫问配装6.png")));
-            Image image2 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getClassLoaderFileInputStream("/MoWen/莫问配装7.png")));
+            Image image1 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getFileInputStream("/Image/MoWen/莫问配装6.png")));
+            Image image2 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getFileInputStream("/Image/MoWen/莫问配装7.png")));
             message = Messages.toMessages(image1, image2);
         } else {
             message = Text.of("请等待" + diffms + "秒再尝试！谢谢！");
@@ -277,8 +282,8 @@ public class JX3BPSMoWenController {
     public void getMoWenPingmin(MiraiGroupMessageEvent event){
         Message message = null;
         if (!throttle()) {
-            Image image1 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getClassLoaderFileInputStream("/MoWen/莫问配装1.png")));
-            Image image2 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getClassLoaderFileInputStream("/MoWen/莫问配装5.png")));
+            Image image1 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getFileInputStream("/Image/MoWen/莫问配装1.png")));
+            Image image2 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getFileInputStream("/Image/MoWen/莫问配装5.png")));
             message = Messages.toMessages(image1, image2);
         } else {
             message = Text.of("请等待" + diffms + "秒再尝试！谢谢！");
@@ -294,9 +299,9 @@ public class JX3BPSMoWenController {
     public void getMoWenJingJian(MiraiGroupMessageEvent event){
         Message message = null;
         if (!throttle()) {
-            Image image1 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getClassLoaderFileInputStream("/MoWen/莫问配装4.png")));
-            Image image2 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getClassLoaderFileInputStream("/MoWen/莫问配装3.png")));
-            Image image3 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getClassLoaderFileInputStream("/MoWen/莫问配装2.png")));
+            Image image1 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getFileInputStream("/Image/MoWen/莫问配装4.png")));
+            Image image2 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getFileInputStream("/Image/MoWen/莫问配装3.png")));
+            Image image3 = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getFileInputStream("/Image/MoWen/莫问配装2.png")));
             message = Messages.toMessages(image1, image2, image3);
         } else {
             message = Text.of("请等待" + diffms + "秒再尝试！谢谢！");
@@ -309,7 +314,8 @@ public class JX3BPSMoWenController {
     public void getMoWenJingJianChoose(MiraiGroupMessageEvent event){
         Message message = null;
         if (!throttle()) {
-            message = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getClassLoaderFileInputStream("/MoWen/莫问精简.png")));
+
+            message = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getFileInputStream("/Image/MoWen/莫问精简.png")));
 //            message = Text.of("内容在修改中哦！请稍候！");
         } else {
             message = Text.of("请等待" + diffms + "秒再尝试！谢谢！");
