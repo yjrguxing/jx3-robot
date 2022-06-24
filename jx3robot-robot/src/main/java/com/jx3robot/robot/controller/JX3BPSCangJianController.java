@@ -14,7 +14,6 @@ import love.forte.simbot.resources.Resource;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.InputStream;
-import java.net.URL;
 
 @RestController
 public class JX3BPSCangJianController {
