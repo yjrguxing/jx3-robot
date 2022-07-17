@@ -7,6 +7,7 @@ import love.forte.simboot.annotation.Filter;
 import love.forte.simboot.annotation.Listener;
 import love.forte.simboot.filter.MatchType;
 import love.forte.simbot.component.mirai.event.MiraiGroupMessageEvent;
+import love.forte.simbot.component.mirai.message.MiraiSendOnlyImage;
 import love.forte.simbot.message.Image;
 import love.forte.simbot.message.Message;
 import love.forte.simbot.message.Messages;
@@ -322,37 +323,23 @@ public class JX3BPSMoWenController {
         }
         event.getGroup().sendBlocking(message);
     }
+    @SneakyThrows
     @Listener
     @Filter(value = "莫问一分钟入门",matchType = MatchType.TEXT_EQUALS)
     public void getMoWenintroduction(MiraiGroupMessageEvent event){
         Message message = null;
         if (!throttle()) {
-            message = Text.of("莫问一分钟入门\n" +
-                    "起手：\n" +
-                    "孤影开 羽影 商影 角影 孤影关\n" +
-                    "无脑一键宏：\n" +
-                    "/cast [tbufftime:商<6] 高山流水\n" +
+            Image image = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getFileInputStream("/Image/MoWen/莫问一分钟入门.png")));
+            Text text = Text.of("无脑一键宏：\n" +
+                    "/cast [tbufftime:商<5] 高山流水\n" +
                     "/fcast 阳春白雪\n" +
                     "/cast [tnobuff:商] 商\n" +
                     "/cast [tnobuff:角] 角\n" +
                     "/cast 变宫\n" +
                     "/cast [buff:书离] 徵\n" +
                     "/cast 羽\n" +
-                    "/cast 疏影横斜\n" +
-                    "奇穴：\n" +
-                    "伏疏 飞帆 逐华 流照 豪情 师襄 知止 刻梦 书离 云汉 参连 无尽藏\n" +
-                    "装备：\n" +
-                    "大附魔用玉简 加速2956 小橙武溢出过多可选4540（影子阈值）\n" +
-                    "破招3000左右或者更低 破防无双基本平衡 会心30左右\n" +
-                    "五彩石用 无双/会心/破防-攻击-会心效果\n" +
-                    "阵法：\n" +
-                    "尽量自己开阵 不行的话吃和尚阵/队友莫问阵/花间阵 都没有的话再吃田螺阵/气纯阵\n" +
-                    "其他设置：\n" +
-                    "游戏设置-特殊门派设置-勾选自动释放阳春白雪\n" +
-                    "剑心插件集-技能增强-影子释放模式选择鼠标射线\n" +
-                    "技能数：\n" +
-                    "徵:流照:流照·音尽＝4:8:1 战斗中不断dot 即为合格\n" +
-                    "其他请看白皮书和莫问大群的群公告\n");
+                    "/cast 疏影横斜");
+            message = Messages.toMessages(image, text);
         } else {
             message = Text.of("请等待" + diffms + "秒再尝试！谢谢！");
         }

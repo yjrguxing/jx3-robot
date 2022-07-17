@@ -23,6 +23,7 @@ public class JX3BPSDuJingController {
         Message message = Text.of(
                 "毒经入门\n" +
                         "毒经宏\n" +
+                        "毒经阵眼选择\n" +
                         "毒经试炼\n" +
                         "毒经计算器\n" +
                         "毒经配装\n" +
@@ -110,6 +111,14 @@ public class JX3BPSDuJingController {
     @Filter(value = "毒经 朧月Oboroduki#蛇悉流B",matchType = MatchType.REGEX_MATCHES)
     public void getDuJingMacroInfo8(MiraiGroupMessageEvent event){
         Message message = Text.of(service.getDuJingMacro("蛇悉流B"));
+        event.getGroup().sendBlocking(message);
+    }
+    @Listener
+    @Filter(value = "毒经阵眼选择",matchType = MatchType.TEXT_EQUALS)
+    public void getDuJingZhenYan(MiraiGroupMessageEvent event){
+        Message message = Text.of(
+                "以本赛季的情况来看，毒经玩家的 阵眼选择大多数为气纯阵/莫问阵/田螺阵/和尚阵 （根据自身属性需要）\n" +
+                        "不过近期毒经阵的收益有大幅度的提高，具体可以通过自己的装备和毒经DPS计算器适配预览一下。");
         event.getGroup().sendBlocking(message);
     }
     @Listener
