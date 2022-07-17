@@ -7,7 +7,6 @@ import love.forte.simboot.annotation.Filter;
 import love.forte.simboot.annotation.Listener;
 import love.forte.simboot.filter.MatchType;
 import love.forte.simbot.component.mirai.event.MiraiGroupMessageEvent;
-import love.forte.simbot.component.mirai.message.MiraiSendOnlyImage;
 import love.forte.simbot.message.Image;
 import love.forte.simbot.message.Message;
 import love.forte.simbot.message.Messages;
@@ -15,9 +14,7 @@ import love.forte.simbot.message.Text;
 import love.forte.simbot.resources.Resource;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.io.File;
 import java.io.InputStream;
-import java.net.URL;
 
 /**
  * 剑三莫问职业问答控制层
