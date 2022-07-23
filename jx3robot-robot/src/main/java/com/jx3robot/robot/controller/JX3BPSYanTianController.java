@@ -25,6 +25,7 @@ import java.io.File;
 public class JX3BPSYanTianController {
     @Listener
     @Filter(value = "衍天",matchType = MatchType.TEXT_EQUALS)
+    @Filter(value = "太玄经",matchType = MatchType.TEXT_EQUALS)
     public void getYanTian(MiraiGroupMessageEvent event){
         Message message = Text.of(
                 "衍天白皮书\n" +

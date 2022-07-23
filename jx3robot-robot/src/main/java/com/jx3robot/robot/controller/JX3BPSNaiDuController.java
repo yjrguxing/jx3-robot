@@ -27,6 +27,8 @@ public class JX3BPSNaiDuController {
 
     @Listener
     @Filter(value = "奶毒",matchType = MatchType.TEXT_EQUALS)
+    @Filter(value = "补天",matchType = MatchType.TEXT_EQUALS)
+    @Filter(value = "补天诀",matchType = MatchType.TEXT_EQUALS)
     public void getNaiDu(MiraiGroupMessageEvent event){
         Message message = Text.of(
                 "奶毒入门\n" +

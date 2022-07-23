@@ -23,6 +23,7 @@ public class JX3BPSLingXueGeController {
     private StringBuilder diffms = new StringBuilder("0");
 
     @Listener
+    @Filter(value = "隐龙诀",matchType = MatchType.TEXT_EQUALS)
     @Filter(value = "凌雪阁",matchType = MatchType.TEXT_EQUALS)
     public void getLingXueGe(MiraiGroupMessageEvent event){
         Message message = null;

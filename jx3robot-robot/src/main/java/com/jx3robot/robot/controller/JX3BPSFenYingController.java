@@ -20,6 +20,7 @@ public class JX3BPSFenYingController {
 
     @Listener
     @Filter(value = "焚影",matchType = MatchType.TEXT_EQUALS)
+    @Filter(value = "焚影圣诀",matchType = MatchType.TEXT_EQUALS)
     public void getFenYing(MiraiGroupMessageEvent event){
         Message message = Text.of(
                 "焚影白皮书\n" +

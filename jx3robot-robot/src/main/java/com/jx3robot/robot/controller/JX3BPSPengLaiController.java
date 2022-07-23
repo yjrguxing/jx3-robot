@@ -20,6 +20,8 @@ public class JX3BPSPengLaiController {
 
     @Listener
     @Filter(value = "蓬莱",matchType = MatchType.TEXT_EQUALS)
+    @Filter(value = "凌海诀",matchType = MatchType.TEXT_EQUALS)
+    @Filter(value = "0海诀",matchType = MatchType.TEXT_EQUALS)
     public void getPengLai(MiraiGroupMessageEvent event){
         Message message = Text.of(
                         "蓬莱基础\n" +

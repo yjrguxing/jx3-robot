@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class JX3BPSLingSuController {
     @Listener
+    @Filter(value = "灵素",matchType = MatchType.TEXT_EQUALS)
     @Filter(value = "药奶",matchType = MatchType.TEXT_EQUALS)
     public void getLingSu(MiraiGroupMessageEvent event){
         Message message = Text.of(

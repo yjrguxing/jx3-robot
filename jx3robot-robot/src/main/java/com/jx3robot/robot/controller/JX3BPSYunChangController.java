@@ -26,6 +26,7 @@ import java.io.File;
 public class JX3BPSYunChangController {
     @Listener
     @Filter(value = "奶秀",matchType = MatchType.TEXT_EQUALS)
+    @Filter(value = "云裳心经",matchType = MatchType.TEXT_EQUALS)
     public void getYunChang(MiraiGroupMessageEvent event){
         Message message = Text.of(
                 "奶秀快速入门\n" +

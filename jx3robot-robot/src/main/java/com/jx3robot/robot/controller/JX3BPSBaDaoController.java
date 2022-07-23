@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class JX3BPSBaDaoController {
     @Listener
     @Filter(value = "霸刀",matchType = MatchType.TEXT_EQUALS)
+    @Filter(value = "北傲诀",matchType = MatchType.TEXT_EQUALS)
     public void getBaDao(MiraiGroupMessageEvent event){
         Message message = Text.of(
                 "霸刀宏\n" +

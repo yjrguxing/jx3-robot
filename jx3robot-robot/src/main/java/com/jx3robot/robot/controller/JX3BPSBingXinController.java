@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class JX3BPSBingXinController {
     @Listener
     @Filter(value = "冰心",matchType = MatchType.TEXT_EQUALS)
+    @Filter(value = "冰心诀",matchType = MatchType.TEXT_EQUALS)
     public void getBingXin(MiraiGroupMessageEvent event){
         Message message = Text.of(
                 "冰心白皮书\n" +

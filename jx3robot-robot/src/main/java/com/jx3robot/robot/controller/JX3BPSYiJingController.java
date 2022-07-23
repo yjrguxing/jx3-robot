@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class JX3BPSYiJingController {
     @Listener
     @Filter(value = "易筋",matchType = MatchType.TEXT_EQUALS)
+    @Filter(value = "易筋经",matchType = MatchType.TEXT_EQUALS)
     public void getYiJing(MiraiGroupMessageEvent event){
         Message message = Text.of(
                 "易筋入门\n" +

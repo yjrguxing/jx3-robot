@@ -26,6 +26,7 @@ import java.io.File;
 public class JX3BPSJianChunController {
     @Listener
     @Filter(value = "剑纯",matchType = MatchType.TEXT_EQUALS)
+    @Filter(value = "太虚剑意",matchType = MatchType.TEXT_EQUALS)
     public void getJianChun(MiraiGroupMessageEvent event){
         Message message = Text.of(
                 "剑纯白皮书\n" +

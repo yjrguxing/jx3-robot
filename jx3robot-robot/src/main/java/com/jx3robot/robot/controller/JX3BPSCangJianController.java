@@ -19,6 +19,8 @@ import java.io.InputStream;
 public class JX3BPSCangJianController {
     @Listener
     @Filter(value = "藏剑",matchType = MatchType.TEXT_EQUALS)
+    @Filter(value = "问水诀",matchType = MatchType.TEXT_EQUALS)
+    @Filter(value = "山居剑意",matchType = MatchType.TEXT_EQUALS)
     public void getCangjian(MiraiGroupMessageEvent event){
         Message message = Text.of(
                 "藏剑宏\n" +

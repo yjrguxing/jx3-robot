@@ -26,6 +26,7 @@ import java.io.File;
 public class JX3BPSTieGuController {
     @Listener
     @Filter(value = "铁骨",matchType = MatchType.TEXT_EQUALS)
+    @Filter(value = "铁骨衣",matchType = MatchType.TEXT_EQUALS)
     public void getTieGu(MiraiGroupMessageEvent event){
         Message message = Text.of(
                 "铁骨指南\n" +

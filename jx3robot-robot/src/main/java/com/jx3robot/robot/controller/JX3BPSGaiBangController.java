@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class JX3BPSGaiBangController {
 
     @Listener
+    @Filter(value = "笑尘诀",matchType = MatchType.TEXT_EQUALS)
     @Filter(value = "丐帮",matchType = MatchType.TEXT_EQUALS)
     public void getGaiBang(MiraiGroupMessageEvent event){
         Message message = Text.of(

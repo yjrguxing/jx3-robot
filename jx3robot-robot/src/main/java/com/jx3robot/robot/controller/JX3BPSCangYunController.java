@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class JX3BPSCangYunController {
     @Listener
     @Filter(value = "分山",matchType = MatchType.TEXT_EQUALS)
+    @Filter(value = "分山劲",matchType = MatchType.TEXT_EQUALS)
     public void getFenShan(MiraiGroupMessageEvent event){
         Message message = Text.of(
                 "分山PVE指南\n" +

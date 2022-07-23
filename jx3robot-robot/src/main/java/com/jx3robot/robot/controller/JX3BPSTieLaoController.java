@@ -27,6 +27,7 @@ public class JX3BPSTieLaoController {
 
     @Listener
     @Filter(value = "铁牢",matchType = MatchType.TEXT_EQUALS)
+    @Filter(value = "铁牢律",matchType = MatchType.TEXT_EQUALS)
     public void getTieLao(MiraiGroupMessageEvent event){
         Message message = Text.of(
                 "铁牢一键宏\n" +

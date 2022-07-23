@@ -24,6 +24,7 @@ public class JX3BPSQiChunController {
 
     @Listener
     @Filter(value = "气纯",matchType = MatchType.TEXT_EQUALS)
+    @Filter(value = "紫霞功",matchType = MatchType.TEXT_EQUALS)
     public void getQiChun(MiraiGroupMessageEvent event){
         Message message = Text.of(
                 "气纯白皮书\n" +
