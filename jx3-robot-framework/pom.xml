@@ -56,7 +56,7 @@
         <!-- 系统模块-->
         <dependency>
             <groupId>com.jx3robot</groupId>
-            <artifactId>jx3robot-system</artifactId>
+            <artifactId>jx3-robot-system</artifactId>
         </dependency>
 
     </dependencies>

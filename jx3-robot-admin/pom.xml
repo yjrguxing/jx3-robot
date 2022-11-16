@@ -46,21 +46,26 @@
         <!-- 核心模块-->
         <dependency>
             <groupId>com.jx3robot</groupId>
-            <artifactId>jx3robot-framework</artifactId>
+            <artifactId>jx3-robot-framework</artifactId>
         </dependency>
 
         <!-- 定时任务-->
         <dependency>
             <groupId>com.jx3robot</groupId>
-            <artifactId>jx3robot-quartz</artifactId>
+            <artifactId>jx3-robot-quartz</artifactId>
         </dependency>
 
         <!-- 代码生成-->
         <dependency>
             <groupId>com.jx3robot</groupId>
-            <artifactId>jx3robot-generator</artifactId>
+            <artifactId>jx3-robot-generator</artifactId>
         </dependency>
 
+        <!-- 机器人核心-->
+        <dependency>
+            <groupId>com.jx3robot</groupId>
+            <artifactId>jx3-robot-core</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

@@ -202,38 +202,43 @@
             <!-- 定时任务-->
             <dependency>
                 <groupId>com.jx3robot</groupId>
-                <artifactId>jx3robot-quartz</artifactId>
+                <artifactId>jx3-robot-quartz</artifactId>
                 <version>${jx3robot.version}</version>
             </dependency>
 
             <!-- 代码生成-->
             <dependency>
                 <groupId>com.jx3robot</groupId>
-                <artifactId>jx3robot-generator</artifactId>
+                <artifactId>jx3-robot-generator</artifactId>
                 <version>${jx3robot.version}</version>
             </dependency>
 
             <!-- 核心模块-->
             <dependency>
                 <groupId>com.jx3robot</groupId>
-                <artifactId>jx3robot-framework</artifactId>
+                <artifactId>jx3-robot-framework</artifactId>
                 <version>${jx3robot.version}</version>
             </dependency>
 
             <!-- 系统模块-->
             <dependency>
                 <groupId>com.jx3robot</groupId>
-                <artifactId>jx3robot-system</artifactId>
+                <artifactId>jx3-robot-system</artifactId>
                 <version>${jx3robot.version}</version>
             </dependency>
 
             <!-- 通用工具-->
             <dependency>
                 <groupId>com.jx3robot</groupId>
-                <artifactId>jx3robot-common</artifactId>
+                <artifactId>jx3-robot-common</artifactId>
                 <version>${jx3robot.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.jx3robot</groupId>
+                <artifactId>jx3-robot-core</artifactId>
+                <version>${jx3robot.version}</version>
+            </dependency>
 
             <!--lombok-->
             <dependency>
@@ -257,6 +262,7 @@
         <module>jx3-robot-quartz</module>
         <module>jx3-robot-generator</module>
         <module>jx3-robot-common</module>
+        <module>jx3-robot-core</module>
     </modules>
     <packaging>pom</packaging>
 
