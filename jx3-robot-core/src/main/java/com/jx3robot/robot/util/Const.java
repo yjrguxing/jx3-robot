@@ -1,8 +1,8 @@
 package com.jx3robot.robot.util;
 
-import love.forte.simbot.BotManager;
-import love.forte.simbot.OriginBotManager;
-import love.forte.simbot.component.mirai.MiraiBotManager;
+import love.forte.simbot.bot.BotManager;
+import love.forte.simbot.bot.OriginBotManager;
+import love.forte.simbot.component.mirai.bot.MiraiBotManager;
 
 import java.util.AbstractMap;
 import java.util.HashMap;

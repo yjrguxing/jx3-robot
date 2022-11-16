@@ -9,8 +9,8 @@ import love.forte.simboot.annotation.FilterValue;
 import love.forte.simboot.annotation.Listener;
 import love.forte.simboot.filter.MatchType;
 import love.forte.simbot.Identifies;
-import love.forte.simbot.component.mirai.MiraiBot;
-import love.forte.simbot.definition.Objectives;
+import love.forte.simbot.component.mirai.bot.MiraiBot;
+import love.forte.simbot.definition.Objective;
 import love.forte.simbot.event.MessageEvent;
 import love.forte.simbot.message.Message;
 import love.forte.simbot.message.Text;
@@ -39,7 +39,7 @@ public class JX3ItemController {
     @Listener
     @Filter(value = "测试")
     public void commonTest(MessageEvent event){
-        final Objectives source = event.getSource();
+        final Objective source = event.getSource();
         source.sendIfSupportBlocking(Text.of("Hello"));
     }
 
@@ -47,7 +47,7 @@ public class JX3ItemController {
     @Filter(value = "到期查询(\\s){{goodName,.*}}",matchType = MatchType.REGEX_MATCHES)
     public void getGoodExpTime(MessageEvent event, @FilterValue("goodName") String goodName){
         // 事件来源
-        final Objectives source = event.getSource();
+        final Objective source = event.getSource();
         // 具体物品
         JX3Item jx3Item = service.getGoodExpTime(goodName);
         // 根据到期时间获取相应信息
