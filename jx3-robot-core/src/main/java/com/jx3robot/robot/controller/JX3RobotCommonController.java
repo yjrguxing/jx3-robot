@@ -29,13 +29,13 @@ public class JX3RobotCommonController {
     @Listener
     @SneakyThrows
     public void memberJoinGroup(MemberIncreaseEvent event){
-        String msg = "当前发生了一次成员新增事件,他的qq号:" + event.getAfter().getId() +
-                ",群昵称:" + event.getAfter().getNickname() +
-                ",用户名:" + event.getAfter().getUsername() +
-                ",入群时间:" + event.getAfter().getJoinTime() + (ActionType.PASSIVE.name().equals(event.getActionType()) ? ",邀请人:" + event.getOperator().getNickname() :",入群方式:主动入群");
-        System.out.println(event.getActionType());
-        System.out.println(event.getActionType().name());
-        System.out.println(ActionType.PASSIVE.name());
-        event.getSource().sendIfSupportBlocking(Text.of(msg));
+//        String msg = "当前发生了一次成员新增事件,他的qq号:" + event.getAfter().getId() +
+//                ",群昵称:" + event.getAfter().getNickname() +
+//                ",用户名:" + event.getAfter().getUsername() +
+//                ",入群时间:" + event.getAfter().getJoinTime().getMillisecond() + (ActionType.PASSIVE.name().equals(event.getActionType()) ? ",邀请人:" + event.getOperator().getNickname() :",入群方式:主动入群");
+//        System.out.println(event.getActionType());
+//        System.out.println(event.getActionType().name());
+//        System.out.println(ActionType.PASSIVE.name());
+//        event.getSource().sendIfSupportBlocking(Text.of(msg));
     }
 }

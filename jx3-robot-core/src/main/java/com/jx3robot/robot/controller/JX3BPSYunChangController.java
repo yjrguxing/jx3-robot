@@ -27,11 +27,12 @@ public class JX3BPSYunChangController {
     @Listener
     @Filter(value = "奶秀",matchType = MatchType.TEXT_EQUALS)
     @Filter(value = "云裳心经",matchType = MatchType.TEXT_EQUALS)
+    @Filter(value = "云裳",matchType = MatchType.TEXT_EQUALS)
     public void getYunChang(MiraiGroupMessageEvent event){
         Message message = Text.of(
                 "奶秀快速入门\n" +
-                        "奶秀攻略\n" +
-                        "奶秀河阳之战副本攻略\n" +
+                        "奶秀进阶\n" +
+                        "奶秀西津渡攻略\n" +
                         "奶秀奇穴\n" +
                         "奶秀加速\n" +
                         "奶秀属性\n" +
@@ -41,38 +42,40 @@ public class JX3BPSYunChangController {
     @Listener
     @Filter(value = "奶秀快速入门",matchType = MatchType.TEXT_EQUALS)
     public void getYunChangGoDoor(MiraiGroupMessageEvent event){
-        Message message = message = Text.of("瞬发（上元/翔舞/王母/风袖）接二跳回雪自断，起手翔舞回雪，穿插上元回雪给掉血的人挂上元。\n" +
-                "王母是大加，风袖是减伤+大加，繁音是爆发，九微飞花是群加/余寒映日是偏单体爆发。\n" +
-                "平时翔舞回雪上元回雪，尽量用上元传染翔舞，单体大掉血风袖，群体大掉血繁音+九微+王母+风袖。\n");
+        Message message = message = Text.of("左旋倒数1的时候开始转，cd40s转满持续60s，尽量保证左旋破招覆盖全程，也就是每40-60s补一次左旋，可配合时间轴在20s内调整时机辅助刷血。\n" +
+                "瞬发（上元/翔舞/王母/风袖）接二跳回雪自断，提前挂几个翔舞，起手左旋铺开，然后穿插上元回雪给掉血的人挂上元，翔舞快掉没了补翔舞，王母是大加，风袖是减伤+大加，繁音是爆发，九微飞花是群加/余寒映日是偏单体爆发。平时翔舞回雪上元回雪，用上元传染翔舞，单体大掉血风袖，群体大掉血繁音+九微+王母+风袖。\n");
         event.getGroup().sendBlocking(message);
     }
     @Listener
-    @Filter(value = "奶秀攻略",matchType = MatchType.TEXT_EQUALS)
+    @Filter(value = "奶秀西津渡攻略",matchType = MatchType.TEXT_EQUALS)
     public void getYunChangGongLue(MiraiGroupMessageEvent event){
-        Message message = Text.of("奶秀攻略：https://www.jx3box.com/bps/19902");
+        Message message = Text.of("【横刀断浪】PVE云裳英雄西津渡1-6攻略\n" +
+                "https://www.jx3box.com/bps/47873\n" +
+                "https://www.jx3box.com/bps/48395");
         event.getGroup().sendBlocking(message);
     }
     @Listener
-    @Filter(value = "奶秀河阳之战副本攻略",matchType = MatchType.TEXT_EQUALS)
+    @Filter(value = "奶秀进阶",matchType = MatchType.TEXT_EQUALS)
     public void getYunChangHeYang(MiraiGroupMessageEvent event){
-        Message message = Text.of("奶秀河阳之战副本攻略：https://www.jx3box.com/bps/39751");
+        Message message = Text.of("【横刀断浪】PVE云裳职业攻略\n" +
+                "https://www.jx3box.com/bps/19902");
         event.getGroup().sendBlocking(message);
     }
     @Listener
     @Filter(value = "奶秀奇穴",matchType = MatchType.TEXT_EQUALS)
     public void getYunChangSaiJiZhiBei(MiraiGroupMessageEvent event){
-        Message message = Text.of("常规：朝露 盛夏 辞致 瑰姿 乞巧 散余霞 心问 碎冰 霜风 秋深 垂眉 九微飞花/余寒映日\n" +
-                "纯群刷：朝露 盛夏 枕上 瑰姿 乞巧 散余霞 晚晴 碎冰 霜风 妍姿 垂眉 九微飞花\n" +
-                "纯单体：朝露 盛夏 辞致 瑰姿 乞巧 晚阳/舞霁 心问 碎冰 霜风 秋深 垂眉 余寒映日\n" +
+        Message message = Text.of("常规：朝露 盛夏 枕上/辞致 瑰姿 乞巧 散余霞 晚晴/心问 碎冰 妍姿 左旋右转 垂眉 九微飞花\n" +
+                "单体奶爆：朝露 盛夏 辞致 瑰姿 乞巧 晚阳/舞霁 心问 碎冰 妍姿 左旋右转（双秀可秋深） 垂眉 余寒映日\n" +
                 "驱散：碎冰改跳珠憾玉\n" +
-                "小战复：垂眉改璇妗\n");
+                "小战复：垂眉改璇妗\n" +
+                "增益：左旋右转（团本必点）\n");
         event.getGroup().sendBlocking(message);
     }
     @Listener
     @Filter(value = "奶秀加速",matchType = MatchType.TEXT_EQUALS)
     @Filter(value = "奶秀属性",matchType = MatchType.TEXT_EQUALS)
     public void getYunChangSpeed(MiraiGroupMessageEvent event){
-        Message message = Text.of("江湖无限赛季50-55%会心，8780加速。");
+        Message message = Text.of("横刀断浪赛季20-25%会心，19316加速。用水特效武器会心会略高，没关系，特效武器更好");
         event.getGroup().sendBlocking(message);
     }
     @SneakyThrows
@@ -80,9 +83,7 @@ public class JX3BPSYunChangController {
     @Filter(value = "奶秀配装",matchType = MatchType.TEXT_EQUALS)
     public void getYunChangPeiZhuang(MiraiGroupMessageEvent event){
         Image image = event.getBot().uploadImageBlocking(Resource.of(FileUtil.getFileInputStream("/Image/NaiXiu/奶秀配装.png")));
-        Text textMessage = Text.of("配装需要满足的条件按照优先级从高到低：8780加速——四件套——\n" +
-                "特效腰坠/特效武器——会疗会五彩石。大附魔残卷玉简皆可，实战表现差别不大。\n" +
-                "参考配装:\n");
+        Text textMessage = Text.of("19316加速——沐风套装——回雪套装——特效腰坠/特效武器——会会疗五彩石。有钱上橙武飞剑妙手没钱不用管。");
         Messages messages = Messages.toMessages(textMessage, image);
         event.getGroup().sendBlocking(messages);
     }

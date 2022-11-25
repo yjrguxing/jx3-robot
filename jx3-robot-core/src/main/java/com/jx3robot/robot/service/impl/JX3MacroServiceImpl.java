@@ -108,9 +108,9 @@ public class JX3MacroServiceImpl implements JX3MacroService {
                 msg += jx3Macro.getMacro() + "\n";
             }
             JX3MacroTalent talent = jx3Macro.getTalent();
-        if(talent != null){
+            if(talent != null){
                 String qxJson;
-                if("".equals(Const.CommonHashMap.qxJsonMap.get(talent.getVersion()))){
+                if(Const.CommonHashMap.qxJsonMap.get(talent.getVersion()) == null || "".equals(Const.CommonHashMap.qxJsonMap.get(talent.getVersion()))){
                     qxJson = getMacroTalent(talent.getVersion());
                     Const.CommonHashMap.qxJsonMap.put(talent.getVersion(),qxJson);
                 }else {
@@ -120,6 +120,7 @@ public class JX3MacroServiceImpl implements JX3MacroService {
                 String[] sqSplit = talent.getSq().split(",");
                 msg += "[";
                 for(int i = 0;i < qxJsonNode.size();i++){
+                    System.out.println(i);
                     JsonNode qxTempNode = qxJsonNode.get(""+ (i + 1));
                     msg += qxTempNode.get(sqSplit[i]).get("name").asText();
                     if (i != qxJsonNode.size() - 1) {

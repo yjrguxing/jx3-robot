@@ -34,8 +34,8 @@ public class JX3BPSBingXinController {
     @Filter(value = "冰心配装",matchType = MatchType.TEXT_EQUALS)
     @Filter(value = "冰心循环",matchType = MatchType.TEXT_EQUALS)
     public void getBingXinWhitePaper(MiraiGroupMessageEvent event){
-        Message message = Text.of("冰心白皮书:https://www.jx3box.com/bps/39670\n" +
-                "有问题先了解白皮书，技能介绍、奇穴、秘籍、循环、实战技巧、辅助宏、插件设置、大附魔、配装及属性收益皆在其中，轻松实现从入门到熟手的提升！");
+        Message message = Text.of("冰心白皮书:https://www.jx3box.com/bps/45250\n" +
+                "有问题先了解白皮书，技能介绍、奇穴、秘籍、循环、实战技巧、辅助宏、插件设置、配装及属性收益、计算器、实战技巧攻略皆在其中，轻松实现从入门到熟手的提升！");
         event.getGroup().sendBlocking(message);
     }
     @Listener
