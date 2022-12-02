@@ -63,12 +63,6 @@
                 <artifactId>simbot-component-mirai-boot</artifactId>
                 <version>${simbot-component-mirai.version}</version>
             </dependency>
-            <!-- 机器人模块 -->
-            <dependency>
-                <groupId>com.jx3robot</groupId>
-                <artifactId>jx3robot-robot</artifactId>
-                <version>${jx3robot.version}</version>
-            </dependency>
             <!--神奇的kotlin大家庭-->
             <!--解决kotlin大家庭重复依赖问题-->
             <dependency>
