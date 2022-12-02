@@ -120,7 +120,6 @@ public class JX3MacroServiceImpl implements JX3MacroService {
                 String[] sqSplit = talent.getSq().split(",");
                 msg += "[";
                 for(int i = 0;i < qxJsonNode.size();i++){
-                    System.out.println(i);
                     JsonNode qxTempNode = qxJsonNode.get(""+ (i + 1));
                     msg += qxTempNode.get(sqSplit[i]).get("name").asText();
                     if (i != qxJsonNode.size() - 1) {

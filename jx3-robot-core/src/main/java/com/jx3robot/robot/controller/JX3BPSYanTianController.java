@@ -33,7 +33,6 @@ public class JX3BPSYanTianController {
                         "衍天入门视频\n" +
                         "衍天焚如一键宏\n" +
                         "衍天3分钟技能数\n" +
-                        "衍天2分钟技能数\n" +
                         "衍天阵眼排序\n" +
                         "衍天小药推荐\n" +
                         "衍天试炼\n" +
@@ -65,36 +64,35 @@ public class JX3BPSYanTianController {
     @Listener
     @Filter(value = "衍天焚如一键宏",matchType = MatchType.TEXT_EQUALS)
     public void getYanTianFenRu(MiraiGroupMessageEvent event){
-        Message message = Text.of("焚如一键宏 作者：萧枯木\n" +
+        Message message = Text.of("堪卜焚增一键宏 作者：萧枯木\n" +
+                "记得猛堆破招 一段加速 破招越高 力量越强\n" +
+                "\n" +
                 "/cast 纵横三才·一\n" +
-                "/cast 祝由·火离\n" +
+                "/cast [tnobuff:神占·火离] 祝由·火离\n" +
                 "/cast 兵主逆\n" +
                 "/cast 起卦\n" +
                 "/cast 变卦\n" +
-                "/cast [nobuff:鬼遁] 鬼星开穴\n" +
-                "/cast 奇门飞宫\n" +
+                "/cast 鬼星开穴\n" +
                 "/cast 返闭惊魂\n" +
+                "/cast 奇门飞宫\n" +
                 "/cast 天斗旋\n" +
                 "/cast 三星临\n" +
-                "奇穴：[水盈][天网][顺祝][荧入白][重山][鬼遁][亘天[神元][枭神][征凶][焚如][增卜]\n" +
-                "有玉简大附魔的点亘天\n" +
-                "没有大附魔的 第八层奇穴 亘天 换成祝祷\n" +
-                "操作模式设置 目标位置 按键开启");
+                "奇穴：[水盈][天网][顺祝][枭神][神占][堪卜][亘天][连断][荧入白][征凶][焚如][增卜]\n" +
+                "放灯移灯设置目标脚下 起手手动斗接移灯接起卦 按键开启");
         event.getGroup().sendBlocking(message);
     }
     @Listener
     @Filter(value = "衍天3分钟技能数",matchType = MatchType.TEXT_EQUALS)
     public void getYanTianThree(MiraiGroupMessageEvent event){
-        Message message = Text.of("有大附魔点亘天 25斗 35临 90兵 145灵器 160+天网\n" +
-                "无大附魔点祝祷 30斗 30临 90兵145灵器 160+天网");
+        Message message = Text.of("28破循环 28破招 30斗 30临 90兵 145灵器 160+天网");
         event.getGroup().sendBlocking(message);
     }
-    @Listener
-    @Filter(value = "衍天2分钟技能数",matchType = MatchType.TEXT_EQUALS)
-    public void getYanTianTwo(MiraiGroupMessageEvent event){
-        Message message = Text.of("17斗60兵59火97灵器110天网24临（奇穴 天网 连断 亘天 增卜）有玉简大附魔");
-        event.getGroup().sendBlocking(message);
-    }
+//    @Listener
+//    @Filter(value = "衍天2分钟技能数",matchType = MatchType.TEXT_EQUALS)
+//    public void getYanTianTwo(MiraiGroupMessageEvent event){
+//        Message message = Text.of("17斗60兵59火97灵器110天网24临（奇穴 天网 连断 亘天 增卜）有玉简大附魔");
+//        event.getGroup().sendBlocking(message);
+//    }
 
     @Listener
     @Filter(value = "衍天阵眼排序",matchType = MatchType.TEXT_EQUALS)
