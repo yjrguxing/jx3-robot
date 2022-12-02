@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jx3robot.system.mapper.SchoolMapper">
+    
+    <resultMap type="School" id="SchoolResult">
+        <result property="id"    column="id"    />
+        <result property="schoolName"    column="school_name"    />
+        <result property="deleteFlag"    column="delete_flag"    />
+        <result property="createdUser"    column="CREATED_USER"    />
+        <result property="createdTime"    column="CREATED_TIME"    />
+        <result property="updatedUser"    column="UPDATED_USER"    />
+        <result property="updatedTime"    column="UPDATED_TIME"    />
+        <result property="deleteBy"    column="DELETE_BY"    />
+        <result property="deleteTime"    column="DELETE_TIME"    />
+    </resultMap>
+
+    <sql id="selectSchoolVo">
+        select id, school_name, delete_flag, CREATED_USER, CREATED_TIME, UPDATED_USER, UPDATED_TIME, DELETE_BY, DELETE_TIME from school
+    </sql>
+
+    <select id="selectSchoolList" parameterType="School" resultMap="SchoolResult">
+        <include refid="selectSchoolVo"/>
+        <where>  
+            <if test="id != null "> and id = #{id}</if>
+            <if test="schoolName != null  and schoolName != ''"> and school_name like concat('%', #{schoolName}, '%')</if>
+            <if test="deleteFlag != null "> and delete_flag = #{deleteFlag}</if>
+            <if test="createdUser != null  and createdUser != ''"> and CREATED_USER = #{createdUser}</if>
+            <if test="params.beginCreatedTime != null and params.beginCreatedTime != '' and params.endCreatedTime != null and params.endCreatedTime != ''"> and CREATED_TIME between #{params.beginCreatedTime} and #{params.endCreatedTime}</if>
+            <if test="updatedUser != null  and updatedUser != ''"> and UPDATED_USER = #{updatedUser}</if>
+            <if test="params.beginUpdatedTime != null and params.beginUpdatedTime != '' and params.endUpdatedTime != null and params.endUpdatedTime != ''"> and UPDATED_TIME between #{params.beginUpdatedTime} and #{params.endUpdatedTime}</if>
+            <if test="deleteBy != null  and deleteBy != ''"> and DELETE_BY = #{deleteBy}</if>
+            <if test="params.beginDeleteTime != null and params.beginDeleteTime != '' and params.endDeleteTime != null and params.endDeleteTime != ''"> and DELETE_TIME between #{params.beginDeleteTime} and #{params.endDeleteTime}</if>
+        </where>
+    </select>
+    
+    <select id="selectSchoolById" parameterType="Long" resultMap="SchoolResult">
+        <include refid="selectSchoolVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertSchool" parameterType="School" useGeneratedKeys="true" keyProperty="id">
+        insert into school
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="schoolName != null and schoolName != ''">school_name,</if>
+            <if test="deleteFlag != null">delete_flag,</if>
+            <if test="createdUser != null">CREATED_USER,</if>
+            <if test="createdTime != null">CREATED_TIME,</if>
+            <if test="updatedUser != null">UPDATED_USER,</if>
+            <if test="updatedTime != null">UPDATED_TIME,</if>
+            <if test="deleteBy != null">DELETE_BY,</if>
+            <if test="deleteTime != null">DELETE_TIME,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="schoolName != null and schoolName != ''">#{schoolName},</if>
+            <if test="deleteFlag != null">#{deleteFlag},</if>
+            <if test="createdUser != null">#{createdUser},</if>
+            <if test="createdTime != null">#{createdTime},</if>
+            <if test="updatedUser != null">#{updatedUser},</if>
+            <if test="updatedTime != null">#{updatedTime},</if>
+            <if test="deleteBy != null">#{deleteBy},</if>
+            <if test="deleteTime != null">#{deleteTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateSchool" parameterType="School">
+        update school
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="schoolName != null and schoolName != ''">school_name = #{schoolName},</if>
+            <if test="deleteFlag != null">delete_flag = #{deleteFlag},</if>
+            <if test="createdUser != null">CREATED_USER = #{createdUser},</if>
+            <if test="createdTime != null">CREATED_TIME = #{createdTime},</if>
+            <if test="updatedUser != null">UPDATED_USER = #{updatedUser},</if>
+            <if test="updatedTime != null">UPDATED_TIME = #{updatedTime},</if>
+            <if test="deleteBy != null">DELETE_BY = #{deleteBy},</if>
+            <if test="deleteTime != null">DELETE_TIME = #{deleteTime},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteSchoolById" parameterType="Long">
+        delete from school where id = #{id}
+    </delete>
+
+    <delete id="deleteSchoolByIds" parameterType="String">
+        delete from school where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
