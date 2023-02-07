@@ -1,6 +1,5 @@
 package com.jx3robot;
 
-import love.forte.simboot.autoconfigure.EnableSimbot;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
@@ -11,7 +10,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  * 
  * @author ruoyi
  */
-@EnableSimbot
 @EnableScheduling
 @SpringBootApplication(exclude = { DataSourceAutoConfiguration.class })
 public class RuoYiApplication

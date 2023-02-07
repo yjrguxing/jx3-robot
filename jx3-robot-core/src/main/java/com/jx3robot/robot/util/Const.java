@@ -1,9 +1,5 @@
 package com.jx3robot.robot.util;
 
-import love.forte.simbot.bot.BotManager;
-import love.forte.simbot.bot.OriginBotManager;
-import love.forte.simbot.component.mirai.bot.MiraiBotManager;
-
 import java.util.AbstractMap;
 import java.util.HashMap;
 import java.util.Map;
@@ -251,27 +247,6 @@ public final class Const {
         }
     }
 
-    public enum MiraiBotManage{
-        // 实例
-        INSTANCE;
-
-        private MiraiBotManager botManage;
-
-        public MiraiBotManager getMiraiBotManage(){
-            if(botManage == null){
-                synchronized (MiraiBotManage.class){
-                    if(botManage == null){
-                        for (BotManager<?> botManagerItem : OriginBotManager.INSTANCE) {
-                            if (botManagerItem instanceof MiraiBotManager) {
-                                botManage = (MiraiBotManager) botManagerItem;
-                            }
-                        }
-                    }
-                }
-            }
-            return botManage;
-        }
-    }
 
     public enum MiraiBot{
         // 可达鸭自己测试用的机器人

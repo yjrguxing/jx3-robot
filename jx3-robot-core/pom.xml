@@ -41,17 +41,6 @@
             <groupId>com.jx3robot</groupId>
             <artifactId>jx3-robot-system</artifactId>
         </dependency>
-        <!-- simple-robotv3 -->
-        <!-- simbot-springbootstarter -->
-        <dependency>
-            <groupId>love.forte.simbot.boot</groupId>
-            <artifactId>simboot-core-spring-boot-starter</artifactId>
-        </dependency>
-        <!--simbot-mirai组件-->
-        <dependency>
-            <groupId>love.forte.simbot.component</groupId>
-            <artifactId>simbot-component-mirai-boot</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>
