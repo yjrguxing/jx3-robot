@@ -26,6 +26,22 @@ public class MiraiBotManagerUtil {
     }
 
     /**
+     * 机器人登出
+     * @param bot 机器人
+     */
+    public static void botClos(Bot bot){
+        bot.close();
+    }
+
+    /**
+     * 机器人强登出
+     * @param bot 机器人
+     */
+    public static void botCloseAndJoin(Bot bot){
+        bot.closeAndJoin(null);
+    }
+
+    /**
      * 创建一个机器人
      * @param qq 机器人QQ号
      * @param password 机器人密码
