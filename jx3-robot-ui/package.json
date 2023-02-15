@@ -1,15 +1,15 @@
 {
-  "name": "ruoyi",
+  "name": "psyduck",
   "version": "3.8.4",
   "description": "剑三机器人",
-  "author": "若依",
+  "author": "psyduck",
   "license": "MIT",
   "scripts": {
-    "dev": "vue-cli-service serve",
-    "build:prod": "vue-cli-service build",
-    "build:stage": "vue-cli-service build --mode staging",
-    "preview": "node build/index.js --preview",
-    "lint": "eslint --ext .js,.vue src"
+    "dev": "set NODE_OPTIONS=--openssl-legacy-provider & vue-cli-service serve",
+    "build:prod": "set NODE_OPTIONS=--openssl-legacy-provider&vue-cli-service build",
+    "build:stage": "set NODE_OPTIONS=--openssl-legacy-provider&vue-cli-service build --mode staging",
+    "preview": "set NODE_OPTIONS=--openssl-legacy-provider&node build/index.js --preview",
+    "lint": "set NODE_OPTIONS=--openssl-legacy-provider&eslint --ext .js,.vue src"
   },
   "husky": {
     "hooks": {

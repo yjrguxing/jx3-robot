@@ -83,7 +83,18 @@ public class SchoolServiceImpl implements ISchoolService
     @Override
     public int deleteSchoolByIds(Long[] ids)
     {
-        return schoolMapper.deleteSchoolByIds(ids);
+        int flag = 0;
+        for(Long id : ids) {
+            School school = schoolMapper.selectSchoolById(id);
+            school.setDeleteFlag(1L);
+            school.setUpdatedUser(SecurityUtils.getUserId().toString());
+            school.setUpdatedTime(new Date());
+            flag = schoolMapper.updateSchool(school);
+            if(flag == 0) {
+                return flag;
+            }
+        }
+        return flag;
     }
 
     /**
@@ -95,6 +106,10 @@ public class SchoolServiceImpl implements ISchoolService
     @Override
     public int deleteSchoolById(Long id)
     {
-        return schoolMapper.deleteSchoolById(id);
+        School school = schoolMapper.selectSchoolById(id);
+        school.setDeleteFlag(1L);
+        school.setUpdatedUser(SecurityUtils.getUserId().toString());
+        school.setUpdatedTime(new Date());
+        return schoolMapper.updateSchool(school);
     }
 }
