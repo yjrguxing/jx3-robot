@@ -2,9 +2,11 @@ package com.jx3robot.robot.util;
 
 import net.mamoe.mirai.Bot;
 import net.mamoe.mirai.BotFactory;
+import net.mamoe.mirai.event.GlobalEventChannel;
+import net.mamoe.mirai.event.SimpleListenerHost;
 import net.mamoe.mirai.utils.BotConfiguration;
 
-import java.io.File;
+import java.lang.reflect.InvocationTargetException;
 
 /**
  * 机器人工具类
@@ -48,8 +50,8 @@ public class MiraiBotManagerUtil {
      * @param filePath 机器人资料存储文件路径
      * @return net.mamoe.mirai.Bot
      */
-    public static Bot createMiraiBot(String qq, String password, String filePath){
-        return BotFactory.INSTANCE.newBot(Long.parseLong(qq), password,createBotConfiguration(filePath,qq));
+    public static Bot createMiraiBot(Long qq, String password, String filePath){
+        return BotFactory.INSTANCE.newBot(qq, password,createBotConfiguration(filePath,qq));
     }
 
     /**
@@ -59,8 +61,8 @@ public class MiraiBotManagerUtil {
      * @param botConfiguration 机器人配置
      * @return net.mamoe.mirai.Bot
      */
-    public static Bot createMiraiBot(String qq, String password, BotConfiguration botConfiguration){
-        return BotFactory.INSTANCE.newBot(Long.parseLong(qq), password,botConfiguration);
+    public static Bot createMiraiBot(Long qq, String password, BotConfiguration botConfiguration){
+        return BotFactory.INSTANCE.newBot(qq, password,botConfiguration);
     }
 
 
@@ -72,8 +74,8 @@ public class MiraiBotManagerUtil {
      * @param protocol 机器人协议
      * @return net.mamoe.mirai.Bot
      */
-    public static Bot createMiraiBot(String qq, String password, String filePath, BotConfiguration.MiraiProtocol protocol) {
-        return BotFactory.INSTANCE.newBot(Long.parseLong(qq), password, createBotConfiguration(filePath, qq, protocol));
+    public static Bot createMiraiBot(Long qq, String password, String filePath, BotConfiguration.MiraiProtocol protocol) {
+        return BotFactory.INSTANCE.newBot(qq, password, createBotConfiguration(filePath, qq, protocol));
     }
 
     /**
@@ -85,8 +87,8 @@ public class MiraiBotManagerUtil {
      * @param heartbeatStrategy 心跳策略
      * @return net.mamoe.mirai.Bot
      */
-    public static Bot createMiraiBot(String qq, String password, String filePath, BotConfiguration.MiraiProtocol protocol, BotConfiguration.HeartbeatStrategy heartbeatStrategy) {
-        return BotFactory.INSTANCE.newBot(Long.parseLong(qq), password, createBotConfiguration(filePath, qq, protocol, heartbeatStrategy));
+    public static Bot createMiraiBot(Long qq, String password, String filePath, BotConfiguration.MiraiProtocol protocol, BotConfiguration.HeartbeatStrategy heartbeatStrategy) {
+        return BotFactory.INSTANCE.newBot(qq, password, createBotConfiguration(filePath, qq, protocol, heartbeatStrategy));
     }
 
     /**
@@ -99,8 +101,8 @@ public class MiraiBotManagerUtil {
      * @param deviceInfoPath 设备信息文件路径
      * @return net.mamoe.mirai.Bot
      */
-    public static Bot createMiraiBot(String qq, String password, String filePath, BotConfiguration.MiraiProtocol protocol, BotConfiguration.HeartbeatStrategy heartbeatStrategy, String deviceInfoPath) {
-        return BotFactory.INSTANCE.newBot(Long.parseLong(qq), password, createBotConfiguration(filePath, qq, protocol, heartbeatStrategy, deviceInfoPath));
+    public static Bot createMiraiBot(Long qq, String password, String filePath, BotConfiguration.MiraiProtocol protocol, BotConfiguration.HeartbeatStrategy heartbeatStrategy, String deviceInfoPath) {
+        return BotFactory.INSTANCE.newBot(qq, password, createBotConfiguration(filePath, qq, protocol, heartbeatStrategy, deviceInfoPath));
     }
 
     /**
@@ -109,12 +111,12 @@ public class MiraiBotManagerUtil {
      * @param qq 机器人QQ号
      * @return net.mamoe.mirai.utils.BotConfiguration
      */
-    public static BotConfiguration createBotConfiguration(String filePath, String qq){
+    public static BotConfiguration createBotConfiguration(String filePath, Long qq){
         BotConfiguration botConfiguration = new BotConfiguration();
         botConfiguration.setHeartbeatStrategy(BotConfiguration.HeartbeatStrategy.STAT_HB);
         botConfiguration.setProtocol(BotConfiguration.MiraiProtocol.ANDROID_PHONE);
-        botConfiguration.setWorkingDir(new File(filePath + qq));
-        botConfiguration.setCacheDir(new File(filePath + qq + "/Cache"));
+        botConfiguration.setWorkingDir(FileUtil.createDirectoryIfNotExists(filePath + qq));
+        botConfiguration.setCacheDir(FileUtil.createDirectoryIfNotExists(filePath + qq + "/Cache"));
         botConfiguration.fileBasedDeviceInfo("device.json");
         return botConfiguration;
     }
@@ -126,12 +128,12 @@ public class MiraiBotManagerUtil {
      * @param protocol 机器人协议
      * @return net.mamoe.mirai.utils.BotConfiguration
      */
-    public static BotConfiguration createBotConfiguration(String filePath, String qq, BotConfiguration.MiraiProtocol protocol){
+    public static BotConfiguration createBotConfiguration(String filePath, Long qq, BotConfiguration.MiraiProtocol protocol){
         BotConfiguration botConfiguration = new BotConfiguration();
         botConfiguration.setHeartbeatStrategy(BotConfiguration.HeartbeatStrategy.STAT_HB);
         botConfiguration.setProtocol(protocol);
-        botConfiguration.setWorkingDir(new File(filePath + qq));
-        botConfiguration.setCacheDir(new File(filePath + qq + "/Cache"));
+        botConfiguration.setWorkingDir(FileUtil.createDirectoryIfNotExists(filePath + qq));
+        botConfiguration.setCacheDir(FileUtil.createDirectoryIfNotExists(filePath + qq + "/Cache"));
         botConfiguration.fileBasedDeviceInfo("device.json");
         return botConfiguration;
     }
@@ -144,12 +146,12 @@ public class MiraiBotManagerUtil {
      * @param heartbeatStrategy 心跳策略
      * @return net.mamoe.mirai.utils.BotConfiguration
      */
-    public static BotConfiguration createBotConfiguration(String filePath, String qq, BotConfiguration.MiraiProtocol protocol, BotConfiguration.HeartbeatStrategy heartbeatStrategy) {
+    public static BotConfiguration createBotConfiguration(String filePath, Long qq, BotConfiguration.MiraiProtocol protocol, BotConfiguration.HeartbeatStrategy heartbeatStrategy) {
         BotConfiguration botConfiguration = new BotConfiguration();
         botConfiguration.setHeartbeatStrategy(heartbeatStrategy);
         botConfiguration.setProtocol(protocol);
-        botConfiguration.setWorkingDir(new File(filePath + qq));
-        botConfiguration.setCacheDir(new File(filePath + qq + "/Cache"));
+        botConfiguration.setWorkingDir(FileUtil.createDirectoryIfNotExists(filePath + qq));
+        botConfiguration.setCacheDir(FileUtil.createDirectoryIfNotExists(filePath + qq + "/Cache"));
         botConfiguration.fileBasedDeviceInfo("device.json");
         return botConfiguration;
     }
@@ -163,13 +165,26 @@ public class MiraiBotManagerUtil {
      * @param deviceInfoPath 设备信息文件路径
      * @return net.mamoe.mirai.utils.BotConfiguration
      */
-    public static BotConfiguration createBotConfiguration(String filePath, String qq, BotConfiguration.MiraiProtocol protocol, BotConfiguration.HeartbeatStrategy heartbeatStrategy, String deviceInfoPath) {
+    public static BotConfiguration createBotConfiguration(String filePath, Long qq, BotConfiguration.MiraiProtocol protocol, BotConfiguration.HeartbeatStrategy heartbeatStrategy, String deviceInfoPath) {
         BotConfiguration botConfiguration = new BotConfiguration();
         botConfiguration.setHeartbeatStrategy(heartbeatStrategy);
         botConfiguration.setProtocol(protocol);
-        botConfiguration.setWorkingDir(new File(filePath + qq));
-        botConfiguration.setCacheDir(new File(filePath + qq + "/Cache"));
+        botConfiguration.setWorkingDir(FileUtil.createDirectoryIfNotExists(filePath + qq));
+        botConfiguration.setCacheDir(FileUtil.createDirectoryIfNotExists(filePath + qq + "/Cache"));
         botConfiguration.fileBasedDeviceInfo(deviceInfoPath);
         return botConfiguration;
+    }
+
+    /**
+     * 注册事件监听器
+     * @param listenerClassName 事件监听器类名
+     * @throws ClassNotFoundException 类未找到异常
+     * @throws NoSuchMethodException 无此方法异常
+     * @throws InvocationTargetException 调用目标异常
+     * @throws InstantiationException 实例化异常
+     * @throws IllegalAccessException 非法访问异常
+     */
+    public static void registerEvent(String listenerClassName) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+        GlobalEventChannel.INSTANCE.registerListenerHost((SimpleListenerHost)Class.forName(listenerClassName).getDeclaredConstructor().newInstance());
     }
 }
